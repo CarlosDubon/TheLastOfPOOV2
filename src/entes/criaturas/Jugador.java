@@ -48,6 +48,7 @@ public class Jugador extends Criatura{
     
     @Override
     public void actualizar(){
+        
         desplazamientoX =0;
         desplazamientoY =0;
         
@@ -176,8 +177,10 @@ public class Jugador extends Criatura{
     public void setZreleased(boolean Zreleased) {
         this.Zreleased = Zreleased;
     }
-    
-    
+
+    public void setVelocidad(int Velocidad) {
+        this.Velocidad = Velocidad;
+    }
     
     public int getEP(){
         return EP;

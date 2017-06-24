@@ -96,6 +96,8 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static final int xScore=80,yScore=230, Mx=375 , My=64;
     
     private static Heart heart1;
+    private static Heart heart2;
+    private static Heart heart3;
     
     private Teclado teclado;
     private String Nick=null; // A la hora de dar start resetear el nick
@@ -159,11 +161,16 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        //plasta2 = new Plasta(teclado,552,376,Sprite.PLASTAIN0,jugador,mapa);
        portal = new Portal(1500,875,Sprite.PORTAL1,jugador,mapa);
        
-       key1=new Key(450, 1270, Sprite.KEY1, jugador, mapa1);
-       key2_1=new Key(230, 1430, Sprite.KEY1, jugador, mapa2);
-       key2_2=new Key(755, 600, Sprite.KEY1, jugador, mapa2);
+        //Llaves
+       key1=new Key(450, 1270, Sprite.KEY1, jugador, mapa);
+       key2_1=new Key(230, 1430, Sprite.KEY1, jugador, mapa);
+       key2_2=new Key(755, 600, Sprite.KEY1, jugador, mapa);
        
-       heart1= new Heart(428, 788, Sprite.HEART1, jugador, mapa1);
+       
+       //Corazones
+       heart1= new Heart(428, 788, Sprite.HEART1, jugador, mapa);
+       heart2= new Heart(444, 788, Sprite.HEART1, jugador, mapa);
+       heart3= new Heart(436, 788+16, Sprite.HEART1, jugador, mapa);
        
        CursorX = 200;
        CursorY = 278;
@@ -218,8 +225,6 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                     }else{
                         mapa=mapa1;   
                     }
-                    
-                     
                 }
                     
                 jugador.setMapa(mapa);
@@ -228,6 +233,8 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 baty2.actualizar();
                 //plasta2.actualizar();
                 heart1.actualizar();
+                heart2.actualizar();
+                heart3.actualizar();
                 portal.actualizar();
                 key1.actualizar();
                 break;
@@ -279,6 +286,8 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 //plasta2.mostrar(pantalla);
                 portal.mostrar(pantalla);
                 heart1.mostrar(pantalla);
+                heart2.mostrar(pantalla);
+                heart3.mostrar(pantalla);
                 key1.mostrar(pantalla);
                 break;
             case 2:
