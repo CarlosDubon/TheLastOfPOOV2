@@ -45,7 +45,7 @@ public class Baty extends Criatura {
         }
         
         if(HP<=0 && !isKiller){
-            jugador.setPuntaje(jugador.getPuntaje()+30);
+            jugador.setPuntaje(jugador.getPuntaje()+40);
             isKiller = true;
         }
         
@@ -81,8 +81,8 @@ public class Baty extends Criatura {
             for(int i =0; i < jugador.arrayDisparos.size();i++){
                 if(jugador.arrayDisparos.get(i).getBounds().intersects(getBounds())){
                     this.HP = HP-jugador.getAtk();
-                    jugador.arrayDisparos.get(i).setStaticX(jugador.arrayDisparos.get(i).getX()+1500);
-                    jugador.arrayDisparos.get(i).setY(700);
+                    jugador.arrayDisparos.get(i).setStaticX(jugador.arrayDisparos.get(i).getX()+1000);
+                    jugador.arrayDisparos.get(i).setY(-700);
                 }
             }
             
