@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/threads/ThreadDisparo.java</file>
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/juego/TheLastOfPOO.java</file>
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/mapa/Mapa.java</file>
@@ -12,6 +13,9 @@
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/criaturas/Jugador.java</file>
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/criaturas/Criatura.java</file>
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/mapa/MapaCargado.java</file>
+=======
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/juego/TheLastOfPOO.java</file>
+>>>>>>> a049ee847bf8d31f637606c804c27441f2627b1b
         </group>
     </open-files>
 </project-private>
