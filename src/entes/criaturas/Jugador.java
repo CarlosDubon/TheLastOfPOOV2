@@ -73,7 +73,7 @@ public class Jugador extends Criatura{
         if(teclado.Shift){
             if(EP > 0){
                 RDC=20;
-                Velocidad = 4;
+                Velocidad = 15;
                 EP  -= 2;
                 if(EP < 5){
                     Velocidad = 1;

@@ -72,7 +72,11 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Mapa mapa2;
     private static Mapa mapa3;
     
+    private static boolean Active= false;
+    
     private static Mapa mapa1Keyed;
+    private static Mapa mapa1Blocked;
+    private static boolean BlockedMapa1= false;
     private static Mapa mapa2Keyed_1;
     private static Mapa mapa2Keyed_2;
     
@@ -82,6 +86,7 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Plasta plasta2;
     private static Portal portal;
     private static Baty baty;
+    private static Baty baty2;
     
     private static Key key1;
     private static Key key2_1;
@@ -136,6 +141,7 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        mapa= new MapaCargado("/texturas/InicioPixel.png");
        mapa1 = new MapaCargado("/texturas/InicioPixel.png");
        mapa1Keyed= new MapaCargado("/texturas/InicioPixel2.png");
+       mapa1Blocked= new MapaCargado("/texturas/InicioPixel_blocked.png");
        mapa2 = new MapaCargado("/texturas/mapa2.png");
        mapa2Keyed_1 = new MapaCargado("/texturas/mapa2_1.png");
        mapa2Keyed_2 = new MapaCargado("/texturas/mapa2_2.png");
@@ -144,6 +150,7 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        //disparo = new Disparo(teclado,367,350,Sprite.DISPARO1,jugador,mapa);
        plasta = new Plasta(teclado,1200,500,Sprite.PLASTAIN0,jugador,mapa);
        baty = new Baty(1050,390,Sprite.BATIZ0,jugador,mapa);
+       baty2 = new Baty(587,1046,Sprite.BATIZ0,jugador,mapa);
        //plasta2 = new Plasta(teclado,552,376,Sprite.PLASTAIN0,jugador,mapa);
        portal = new Portal(1500,875,Sprite.PORTAL1,jugador,mapa);
        
@@ -193,13 +200,27 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         
         switch (estado.getEstado()){
             case 1:
-                if(key1.isKeyUsed())
+                if(jugador.getBounds().intersects(700, 960, 32, 32*7)){
+                    BlockedMapa1=true;
+                }
+                if(key1.isKeyUsed()){
                     mapa=mapa1Keyed;
-                else
-                    mapa=mapa1;
+                    BlockedMapa1=false;
+                }else{
+                    
+                    if(BlockedMapa1){
+                        mapa=mapa1Blocked;
+                    }else{
+                        mapa=mapa1;   
+                    }
+                    
+                     
+                }
+                    
                 jugador.setMapa(mapa);
                 plasta.actualizar();
                 baty.actualizar();
+                baty2.actualizar();
                 //plasta2.actualizar();
                 heart1.actualizar();
                 portal.actualizar();
@@ -249,6 +270,7 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             case 1:
                 plasta.mostrar(pantalla);
                 baty.mostrar(pantalla);
+                baty2.mostrar(pantalla);
                 //plasta2.mostrar(pantalla);
                 portal.mostrar(pantalla);
                 heart1.mostrar(pantalla);
@@ -283,8 +305,9 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         g.drawString("HP: ",10,20);
         g.drawString("EP: ",10, 30);
         g.drawString("FR: ",10, 40);
-        g.drawString(""+jugador.getPuntaje(), 400, 20);
         g.setFont(fontTimer);
+        g.drawString(""+jugador.getPuntaje(), 400, 40);
+     
         g.drawString(""+TiempoF,750,25);
         g.setColor(new Color(46, 204, 113));
         g.fillRect(35, 15, jugador.getHP()/2, 5);
@@ -301,7 +324,8 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             g.setColor(Color.WHITE);
             g.drawString("GAME OVER", ANCHO/2-50,ALTO/2);
             g.drawString("Press Enter to continue...", ANCHO/2-120,ALTO/2+40);
-            if(Nick == null){
+            if(Nick == null && !Active){
+                Active=true;
                 Nick=JOptionPane.showInputDialog(this, "Nickname: ", "GAME OVER", JOptionPane.QUESTION_MESSAGE);
                 BaseDeDatos.insertJugador(Nick, jugador.getPuntaje());
                 //System.out.println(Nick);
@@ -433,7 +457,13 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     }
     
     public void Restock(){
-       Nick=null;
+        teclado= new Teclado();
+        addKeyListener(teclado);
+        
+        Active=false;
+        BlockedMapa1=false;
+        
+        Nick=null;
        
        mapa=mapa1;
        
@@ -442,14 +472,12 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        THilo=new Thread(tiempo);
        ControlTiempo=false;
        
-       Tile.PUERTADOWN.setSolido(true);
-       Tile.PUERTAUP.setSolido(true);
-       
        jugador = new Jugador(teclado,367,350,Sprite.INICIAL0,mapa);
        plasta = new Plasta(teclado,1200,500,Sprite.PLASTAIN0,jugador,mapa);
        key1=new Key(450, 1270, Sprite.KEY1, jugador, mapa1);
        portal = new Portal(1500,875,Sprite.PORTAL1,jugador,mapa);
        baty = new Baty(1050,390,Sprite.BATIZ0,jugador,mapa);
+       baty2 = new Baty(587,1046,Sprite.BATIZ0,jugador,mapa);
 
        
        key2_1=new Key(220, 1430, Sprite.KEY1, jugador, mapa2);
