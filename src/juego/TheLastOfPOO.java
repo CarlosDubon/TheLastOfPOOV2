@@ -6,6 +6,7 @@
 package juego;
 
 import control.Estado;
+import control.Puntaje;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
@@ -98,7 +99,8 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private String Nick=null; // A la hora de dar start resetear el nick
     private static Pantalla pantalla;
     
-    private DBQuery BaseDeDatos;
+    private static DBQuery BaseDeDatos;
+    private static Puntaje[] Top10;
     
     private static int CursorX;        
     private static int CursorY;
@@ -432,6 +434,13 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                         ControlTiempo=true;
                         THilo.start();
                         Estado.estado = 1;
+                        break;
+                    case 378:
+                        Top10=BaseDeDatos.TopScores();
+                        for(Puntaje p: Top10){
+                            System.out.println(p.getNick()+" "+p.getScore());
+                        }
+                        System.out.println("\n\n");
                         break;
                     case 478:
                         System.exit(0);
