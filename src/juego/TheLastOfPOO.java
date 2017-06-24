@@ -93,6 +93,8 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Key key2_1;
     private static Key key2_2;
     
+    private static final int xScore=80,yScore=230, Mx=375 , My=64;
+    
     private static Heart heart1;
     
     private Teclado teclado;
@@ -115,6 +117,7 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static int[] pixeles = ((DataBufferInt) imagen.getRaster().getDataBuffer()).getData();
     
     private static BufferedImage Menu;
+    private static BufferedImage PantallaScore;
 
     private static BufferedImage Cursor;
     
@@ -127,7 +130,7 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        
         try {
             Menu = ImageIO.read(new File(".\\.\\recursos\\texturas\\GameMenu.png"));
-
+            PantallaScore= ImageIO.read(new File(".\\.\\recursos\\texturas\\GameScore.png"));
             Cursor= ImageIO.read(new File(".\\.\\recursos\\texturas\\Cursor.png"));
         } catch (IOException ex) {
             System.out.println(ex);
@@ -251,7 +254,7 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 jugador.setMapa(mapa);
                 break;
         }
-        if (Estado.estado != 0)
+        if (Estado.estado != 0 && Estado.estado != 4)
             jugador.actualizar();
         aps++;
     }
@@ -330,14 +333,38 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 Active=true;
                 Nick=JOptionPane.showInputDialog(this, "Nickname: ", "GAME OVER", JOptionPane.QUESTION_MESSAGE);
                 BaseDeDatos.insertJugador(Nick, jugador.getPuntaje());
+                
                 //System.out.println(Nick);
-            }  
+            }
+            
+            
         }
         
         if(Estado.estado == 0){
 
             g.drawImage(Menu, 0, 0, this);
             g.drawImage(Cursor,CursorX,CursorY,this);
+        }
+        
+        if (Estado.estado == 4){
+            int cont=0;
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Agency FB",Font.BOLD,30));
+            g.drawImage(PantallaScore, 0, 0, this);
+            for(int i=0; i< Top10.length;i++){
+                if(Top10[i]!= null){
+                    if(i<5){
+                        g.drawString((i+1)+". "+Top10[i].getNick()+"  "+Top10[i].getScore(), xScore, yScore+(i*My));
+                    }
+                    else{
+                        g.drawString((i+1)+". "+Top10[i].getNick()+"  "+Top10[i].getScore(), xScore+Mx, yScore+((i-5)*My));
+                    }
+               }
+                
+            }
+
+                
+                                 
         }
         
 
@@ -436,11 +463,10 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                         Estado.estado = 1;
                         break;
                     case 378:
+                        
                         Top10=BaseDeDatos.TopScores();
-                        for(Puntaje p: Top10){
-                            System.out.println(p.getNick()+" "+p.getScore());
-                        }
-                        System.out.println("\n\n");
+                        
+                        Estado.estado=4;
                         break;
                     case 478:
                         System.exit(0);
@@ -448,10 +474,12 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 }
                 CursorY=278;
             }
-            else if(Estado.estado !=0 && jugador.getHP() <=0){
-                
-                Estado.estado=0;
+            else if(Estado.estado !=0 && jugador.getHP() <=0 && Estado.estado !=4){
                 Restock();
+                Estado.estado=0;
+            }
+            else if (Estado.estado == 4){
+                Estado.estado=0;
             }
         }
 

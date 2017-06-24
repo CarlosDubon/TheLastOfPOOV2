@@ -58,6 +58,7 @@ public class DBQuery {
                 cont++;
             }
             
+                      
             PQuery.close();
             conexion.cerrarConexion(con);
             return Top10;
