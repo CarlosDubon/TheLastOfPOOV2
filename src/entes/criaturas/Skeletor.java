@@ -33,6 +33,8 @@ public class Skeletor extends Criatura {
     public void actualizar(){
         desplazamientoX =0;
         desplazamientoY =0;
+        int limiteX = 568;
+        int limiteY = 456;
         
         if(animacion < 32767){
             animacion++;
@@ -63,6 +65,62 @@ public class Skeletor extends Criatura {
             }
             if(jugador.getBounds().intersects(getBounds())){
                 jugador.setHP(jugador.getHP()-ATK);
+            }
+            
+            if(x-limiteX > 0 && y-limiteY == 262){
+                moverX(desplazamientoX,limiteX,Velocidad,'o');
+            }
+            if(x-limiteX ==0){
+                moverY(desplazamientoX,limiteY,Velocidad,'n');
+            }
+            if((y-limiteY)==0){
+                moverX(desplazamientoX,originalX,Velocidad,'e');
+            }
+            if((originalY-y > 0) && x-limiteX == 351){
+                moverY(desplazamientoY,originalY,Velocidad,'s');
+            }
+            for(int i =0; i < jugador.arrayDisparos.size();i++){
+                if(jugador.arrayDisparos.get(i).getBounds().intersects(getBounds())){
+                    HP = HP - jugador.getAtk();
+                    jugador.arrayDisparos.get(i).setStaticX(jugador.arrayDisparos.get(i).getX()+1500);
+                    jugador.arrayDisparos.get(i).setY(700);
+                }
+            }
+            if(direccion == 'o'){
+                sprite = Sprite.SKIZ0;
+                 if(isMove){
+                    if(animacion % 40 > 20){
+                        sprite = Sprite.SKIZ1;
+                    }else{
+                        sprite = Sprite.SKIZ_1;
+                    }
+                }
+              }
+            if(direccion == 's'){   
+               sprite = Sprite.SKINICIO0;
+                   if(animacion % 40 > 20){
+                       sprite = Sprite.SKINICIO1;
+                   }else{
+                        sprite = Sprite.SKINICIO_1;
+                   }
+            }
+            if(direccion == 'e'){   
+               sprite = Sprite.SKDE0;
+                   if(animacion % 40 > 20){
+                       sprite = Sprite.SKDE1;
+                   }else{
+                        sprite = Sprite.SKDE_1;
+                   }
+                
+            }
+            if(direccion == 'n'){   
+               sprite = Sprite.SKABAJO0;
+                   if(animacion % 40 > 20){
+                       sprite = Sprite.SKABAJO1;
+                   }else{
+                        sprite = Sprite.SKABAJO_1;
+                   }
+                
             }
             
         }else{
