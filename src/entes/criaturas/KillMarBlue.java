@@ -27,7 +27,7 @@ public class KillMarBlue extends Criatura {
         this.originalX = x;
         this.originalY = y;
         this.isKiller = false;
-        this.ATK = 3;
+        this.ATK = 1;
     }
     public void actualizar(){
         desplazamientoX =0;
@@ -51,7 +51,20 @@ public class KillMarBlue extends Criatura {
         }
         
         if(isMove){
-        
+            if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 100){
+                moverX(desplazamientoX,jugador.getX()+24,Velocidad,direccion);
+                moverY(desplazamientoY,jugador.getY(),Velocidad,direccion);
+            }else if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 70){
+                ATK = 2;
+            }else if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 50){
+                ATK = 3;
+            }else if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 40){
+                ATK = 4;
+            }else if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 20){
+                ATK = 5;
+            }else{
+                ATK = 1;
+            }
         }else{
         
         }
