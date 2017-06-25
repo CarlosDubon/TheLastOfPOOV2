@@ -170,6 +170,39 @@ public class Sprite {
     public static final Sprite SKADIE = new Sprite(48,0,4,HojaSprites.HojaSkeletorSprites);
 
     // FIN SPRITES ESQUELETO VERDE
+    
+    //SPRITES MAGO
+    
+    public static final Sprite MGRINICIO0 = new Sprite(48,1,0,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRINICIO1 = new Sprite(48,0,0,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRINICIO_1 = new Sprite(48,2,0,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRIZ0 = new Sprite(48,1,1,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRIZ1 = new Sprite(48,0,1,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRIZ_1 = new Sprite(48,2,1,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRDE0 = new Sprite(48,1,2,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRDE1 = new Sprite(48,0,2,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRDE_1 = new Sprite(48,2,2,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRABAJO0 = new Sprite(48,1,3,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRABAJO1 = new Sprite(48,0,3,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGRABAJO_1 = new Sprite(48,2,3,HojaSprites.HojaMagoRSprites);
+    public static final Sprite MGAINICIO0 = new Sprite(48,1,0,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGAINICIO1 = new Sprite(48,0,0,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGAINICIO_1 = new Sprite(48,2,0,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGAIZ0 = new Sprite(48,1,1,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGAIZ1 = new Sprite(48,0,1,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGAIZ_1 = new Sprite(48,2,1,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGADE0 = new Sprite(48,1,2,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGADE1 = new Sprite(48,0,2,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGADE_1 = new Sprite(48,2,2,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGAABAJO0 = new Sprite(48,1,3,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGAABAJO1 = new Sprite(48,0,3,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGAABAJO_1 = new Sprite(48,2,3,HojaSprites.HojaMagoASprites);
+    public static final Sprite MGDIE = new Sprite(48,0,4,HojaSprites.HojaMagoRSprites);
+    
+    
+    //FIN SPRITES MAGO
+    
+    
 //Fin de la coleccion
     
     public Sprite(final int lado, final int columna, final int fila, final HojaSprites hoja){

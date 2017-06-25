@@ -12,6 +12,7 @@ import entes.criaturas.Heart;
 import mapa.tile.Tile;
 import entes.criaturas.Jugador;
 import entes.criaturas.Key;
+import entes.criaturas.Mago;
 import entes.criaturas.Plasta;
 import entes.criaturas.Portal;
 import entes.criaturas.Skeletor;
@@ -241,6 +242,27 @@ public class Pantalla {
                 }
                 int colorPixelSkeletor = skeletor.getSprite().pixeles[x+y*skeletor.getSprite().getLado()];
                 if(colorPixelSkeletor !=0xff00ff12 ){
+                    pixeles [posicionX + posicionY * ancho] = skeletor.getSprite().pixeles[x + y * skeletor.getSprite().getLado()];
+                }
+            }
+        }
+    }
+    
+    public void mostrarMago(int compensacionX, int compensacionY, Mago skeletor){
+        compensacionX -=diferenciaX;
+        compensacionY -= diferenciaY;
+        for(int y =0 ; y < skeletor.getSprite().getLado();y++){ 
+            int posicionY = y + compensacionY;
+            for(int x = 0; x<skeletor.getSprite().getLado(); x++){
+                int posicionX = x + compensacionX;
+                if(posicionX < -skeletor.getSprite().getLado() || posicionX >= ancho || posicionY < 0 || posicionY >= alto){
+                    break;
+                }
+                if(posicionX < 0){
+                    posicionX = 0;
+                }
+                int colorPixelSkeletor = skeletor.getSprite().pixeles[x+y*skeletor.getSprite().getLado()];
+                if(colorPixelSkeletor !=0xff06ff00 ){
                     pixeles [posicionX + posicionY * ancho] = skeletor.getSprite().pixeles[x + y * skeletor.getSprite().getLado()];
                 }
             }

@@ -62,7 +62,7 @@ public class Portal extends Criatura {
                     break;
                 case 2:
                     jugador.setStaticX(400);
-                    jugador.setStaticY(300);
+                    jugador.setStaticY(265);
                     Estado.estado=3;
                     x = 0;
                     y = 0;

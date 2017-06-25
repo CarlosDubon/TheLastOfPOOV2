@@ -42,6 +42,7 @@ import mapa.tile.Tile;
 import database.DBQuery;
 import entes.criaturas.Baty;
 import entes.criaturas.BatyRed;
+import entes.criaturas.Mago;
 import entes.criaturas.Skeletor;
 import threads.Tiempo;
 
@@ -92,6 +93,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Baty baty2;
     private static BatyRed batyRed;
     private static Skeletor skeletor;
+    private static Mago mago1;
     
     
     private static Key key1;
@@ -146,7 +148,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private TheLastOfPOO(){
         setPreferredSize(new Dimension(ANCHO, ALTO));
         estado = new Estado();
-        Estado.estado=2; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
+        //Estado.estado=2; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
         
        
@@ -264,7 +266,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             case 3:
                 mapa=mapa3;
                 jugador.setMapa(mapa);
-                
+                mago1.actualizar();
                 heart3_1.actualizar();
                 heart3_2.actualizar();
                 heart3_3.actualizar();
@@ -319,6 +321,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 
                 break;
             case 3:
+                
+                mago1.mostrar(pantalla);
                 
                 heart3_1.mostrar(pantalla);
                 heart3_2.mostrar(pantalla);
@@ -569,9 +573,9 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        
        //Mapa2
        
-       skeletor = new Skeletor(919,718,Sprite.SKINICIO0,jugador,mapa2);
-       key2_1=new Key(220, 1430, Sprite.KEY1, jugador, mapa2);
-       key2_2=new Key(750, 587, Sprite.KEY1, jugador, mapa2);
+       skeletor = new Skeletor(919,718,Sprite.SKINICIO0,jugador,mapa);
+       key2_1=new Key(220, 1430, Sprite.KEY1, jugador, mapa);
+       key2_2=new Key(750, 587, Sprite.KEY1, jugador, mapa);
        heart2_1= new Heart(1175, 360, Sprite.HEART1, jugador, mapa);
        heart2_2= new Heart(480, 1530, Sprite.HEART1, jugador, mapa);
        heart2_3= new Heart(1125, 1320, Sprite.HEART1, jugador, mapa);
@@ -580,7 +584,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        
        
        //Mapa 3
-       
+       mago1=  new Mago(919,260,Sprite.MGRINICIO0,jugador,mapa);
        heart3_1= new Heart(1916, 290, Sprite.HEART1, jugador, mapa);
        heart3_2= new Heart(1770, 950, Sprite.HEART1, jugador, mapa);
        heart3_3= new Heart(448, 1535, Sprite.HEART1, jugador, mapa);
