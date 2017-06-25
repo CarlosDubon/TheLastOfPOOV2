@@ -21,10 +21,10 @@ public class Disparo extends Criatura {
     private int OriginalX;
     private int OriginalY;
     public Jugador jugador;
-    public final static int MarIzq=-8;
-    public final static int MarDer=20;
-    public final static int MarSup=20;
-    public final static int MarInf=-5;
+    public final static int MarIzq=-5;
+    public final static int MarDer=15;
+    public final static int MarSup=15;
+    public final static int MarInf=-8;
     private Thread HiloDisparo;
     
     public Disparo(int posicionX,int posicionY,Sprite sprite,Jugador jugador,Mapa mapa, char direccion){
