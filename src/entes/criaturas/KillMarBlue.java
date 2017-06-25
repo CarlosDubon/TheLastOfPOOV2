@@ -61,6 +61,6 @@ public class KillMarBlue extends Criatura {
         }
     }
     public void mostrar(Pantalla pantalla){
-    
+        pantalla.mostrarKill(x, y, this);
     }
 }

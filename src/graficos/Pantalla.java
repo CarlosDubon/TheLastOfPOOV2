@@ -12,6 +12,7 @@ import entes.criaturas.Heart;
 import mapa.tile.Tile;
 import entes.criaturas.Jugador;
 import entes.criaturas.Key;
+import entes.criaturas.KillMarBlue;
 import entes.criaturas.Mago;
 import entes.criaturas.Plasta;
 import entes.criaturas.Portal;
@@ -264,6 +265,26 @@ public class Pantalla {
                 int colorPixelSkeletor = skeletor.getSprite().pixeles[x+y*skeletor.getSprite().getLado()];
                 if(colorPixelSkeletor !=0xff06ff00 ){
                     pixeles [posicionX + posicionY * ancho] = skeletor.getSprite().pixeles[x + y * skeletor.getSprite().getLado()];
+                }
+            }
+        }
+    }
+    public void mostrarKill(int compensacionX, int compensacionY, KillMarBlue kill){
+        compensacionX -=diferenciaX;
+        compensacionY -= diferenciaY;
+        for(int y =0 ; y < kill.getSprite().getLado();y++){ 
+            int posicionY = y + compensacionY;
+            for(int x = 0; x<kill.getSprite().getLado(); x++){
+                int posicionX = x + compensacionX;
+                if(posicionX < -kill.getSprite().getLado() || posicionX >= ancho || posicionY < 0 || posicionY >= alto){
+                    break;
+                }
+                if(posicionX < 0){
+                    posicionX = 0;
+                }
+                int colorPixelSkeletor = kill.getSprite().pixeles[x+y*kill.getSprite().getLado()];
+                if(colorPixelSkeletor !=0xff06ff00 ){
+                    pixeles [posicionX + posicionY * ancho] = kill.getSprite().pixeles[x + y * kill.getSprite().getLado()];
                 }
             }
         }

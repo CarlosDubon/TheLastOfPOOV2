@@ -42,6 +42,7 @@ import mapa.tile.Tile;
 import database.DBQuery;
 import entes.criaturas.Baty;
 import entes.criaturas.BatyRed;
+import entes.criaturas.KillMarBlue;
 import entes.criaturas.Mago;
 import entes.criaturas.Skeletor;
 import threads.Tiempo;
@@ -94,6 +95,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static BatyRed batyRed;
     private static Skeletor skeletor;
     private static Mago mago1;
+    private static KillMarBlue kill;
     
     
     private static Key key1;
@@ -252,6 +254,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 
                 jugador.setMapa(mapa);
                 skeletor.actualizar();
+                kill.actualizar();
                 portal.actualizar();
                 key2_1.actualizar();
                 key2_2.actualizar();
@@ -309,6 +312,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 break;
             case 2:
                 skeletor.mostrar(pantalla);
+                kill.mostrar(pantalla);
                 portal.mostrar(pantalla);
                 key2_1.mostrar(pantalla);
                 key2_2.mostrar(pantalla);
@@ -574,6 +578,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        //Mapa2
        
        skeletor = new Skeletor(919,718,Sprite.SKINICIO0,jugador,mapa);
+       kill = new KillMarBlue(247,1356,Sprite.KMDOWN0,jugador,mapa);
        key2_1=new Key(220, 1430, Sprite.KEY1, jugador, mapa);
        key2_2=new Key(750, 587, Sprite.KEY1, jugador, mapa);
        heart2_1= new Heart(1175, 360, Sprite.HEART1, jugador, mapa);

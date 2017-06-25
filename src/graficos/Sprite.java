@@ -201,7 +201,22 @@ public class Sprite {
     
     
     //FIN SPRITES MAGO
+    //INICIO SPRITES KILLMAR
+    public static final Sprite KMDOWN0 = new Sprite(48,1,0,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMDOWN_1 = new Sprite(48,0,0,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMDOWN1 = new Sprite(48,2,0,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMIZ1 = new Sprite(48,0,1,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMIZ0 = new Sprite(48,1,1,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMIZ_1 = new Sprite(48,2,1,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMDE1 = new Sprite(48,1,2,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMDE0 = new Sprite(48,0,2,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMD_1 = new Sprite(48,2,2,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMUP1 = new Sprite(48,1,3,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMUP0 = new Sprite(48,0,3,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMUP_1 = new Sprite(48,2,3,HojaSprites.HojaKillMarBlueSprites);
+    public static final Sprite KMDIE = new Sprite(48,0,4,HojaSprites.HojaKillMarBlueSprites);
     
+    // FIN SPRITES KILLMAR
     
 //Fin de la coleccion
     
