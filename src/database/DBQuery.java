@@ -1,6 +1,7 @@
 
 package database;
 
+import control.Puntaje;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +29,7 @@ public class DBQuery {
            
            
            PQuery.executeUpdate();
-           
+           PQuery.close();
            conexion.cerrarConexion(con);
         }catch(SQLException e){
             System.out.println("Aqui esta el error");
@@ -36,5 +37,34 @@ public class DBQuery {
             return false;
         }
         return true;
+    }
+    
+    public Puntaje[] TopScores(){
+        Puntaje[] Top10= new Puntaje[10];
+        Puntaje Aux;
+        int cont=0;
+        
+        
+        try{
+            con=conexion.abrirConexion();
+            
+            String Query= "SELECT * FROM Jugador ORDER BY IdJugador DESC LIMIT 10";
+            PreparedStatement PQuery = con.prepareStatement( Query );
+            ResultSet RS= PQuery.executeQuery();
+            
+            while (RS.next()){
+                Aux= new Puntaje(RS.getString("nick"), RS.getInt("puntaje"));
+                Top10[cont]=Aux;
+                cont++;
+            }
+            
+                      
+            PQuery.close();
+            conexion.cerrarConexion(con);
+            return Top10;
+        }catch(SQLException e){
+            System.out.println("ERROR: "+e.getMessage());
+            return null;
+        }        
     }
 }
