@@ -34,6 +34,7 @@ public class HojaSprites {
     public static HojaSprites HojaMagoRSprites = new HojaSprites("/texturas/HojaSpritesMagoRojo.png",144,240);
     public static HojaSprites HojaMagoASprites = new HojaSprites("/texturas/HojaSpritesMagoRojoAmarillo.png",144,240);
     public static HojaSprites HojaKillMarBlueSprites = new HojaSprites("/texturas/KillmarBlueSprites.png",144,240);
+    public static HojaSprites HojaTauroSprites = new HojaSprites("/texturas/TaouroSprites.png",144,240);
 
     //fin de la coleccion
     

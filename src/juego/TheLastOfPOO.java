@@ -45,6 +45,7 @@ import entes.criaturas.BatyRed;
 import entes.criaturas.KillMarBlue;
 import entes.criaturas.Mago;
 import entes.criaturas.Skeletor;
+import entes.criaturas.Tauro;
 import threads.Tiempo;
 
 
@@ -86,9 +87,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Mapa mapa2Keyed_2;
     
     private static Jugador jugador;
-    private static Disparo disparo;
     private static Plasta plasta;
-    private static Plasta plasta2;
     private static Portal portal;
     private static Baty baty;
     private static Baty baty2;
@@ -100,6 +99,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static BatyRed batyRed2;
     private static KillMarBlue kill2;
     private static Skeletor catrina;
+    private static Tauro tauro;
     
     private static Key key1;
     private static Key key2_1;
@@ -154,7 +154,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         setPreferredSize(new Dimension(ANCHO, ALTO));
         estado = new Estado();
         
-        Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
+        Estado.estado=2; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
         
        
@@ -177,8 +177,6 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        
        Restock();
        
-       jugador.setStaticX(400);
-       jugador.setStaticY(200);
         addKeyListener(this);
         ventana = new JFrame(TITLE);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -260,6 +258,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 
                 jugador.setMapa(mapa);
                 skeletor.actualizar();
+                tauro.actualizar();
                 kill.actualizar();
                 portal.actualizar();
                 key2_1.actualizar();
@@ -323,6 +322,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             case 2:
                 skeletor.mostrar(pantalla);
                 kill.mostrar(pantalla);
+                tauro.moostrar(pantalla);
+                
                 portal.mostrar(pantalla);
                 key2_1.mostrar(pantalla);
                 key2_2.mostrar(pantalla);
@@ -593,6 +594,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        
        skeletor = new Skeletor(919,718,Sprite.SKINICIO0,jugador,mapa);
        kill = new KillMarBlue(247,1356,Sprite.KMDOWN0,jugador,mapa);
+       tauro = new Tauro(1111,324,Sprite.TRDOWN0,jugador,mapa);
        key2_1=new Key(220, 1430, Sprite.KEY1, jugador, mapa);
        key2_2=new Key(750, 587, Sprite.KEY1, jugador, mapa);
        heart2_1= new Heart(1175, 360, Sprite.HEART1, jugador, mapa);

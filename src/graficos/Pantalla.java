@@ -17,6 +17,7 @@ import entes.criaturas.Mago;
 import entes.criaturas.Plasta;
 import entes.criaturas.Portal;
 import entes.criaturas.Skeletor;
+import entes.criaturas.Tauro;
 
 /**
  *
@@ -285,6 +286,26 @@ public class Pantalla {
                 int colorPixelSkeletor = kill.getSprite().pixeles[x+y*kill.getSprite().getLado()];
                 if(colorPixelSkeletor !=0xffffffff ){
                     pixeles [posicionX + posicionY * ancho] = kill.getSprite().pixeles[x + y * kill.getSprite().getLado()];
+                }
+            }
+        }
+    }
+    public void mostrarTauro(int compensacionX, int compensacionY, Tauro taouro){
+        compensacionX -=diferenciaX;
+        compensacionY -= diferenciaY;
+        for(int y =0 ; y < taouro.getSprite().getLado();y++){ 
+            int posicionY = y + compensacionY;
+            for(int x = 0; x<taouro.getSprite().getLado(); x++){
+                int posicionX = x + compensacionX;
+                if(posicionX < -taouro.getSprite().getLado() || posicionX >= ancho || posicionY < 0 || posicionY >= alto){
+                    break;
+                }
+                if(posicionX < 0){
+                    posicionX = 0;
+                }
+                int colorPixelTaouro = taouro.getSprite().pixeles[x+y*taouro.getSprite().getLado()];
+                if(colorPixelTaouro !=0xffffffff ){
+                    pixeles [posicionX + posicionY * ancho] = taouro.getSprite().pixeles[x + y * taouro.getSprite().getLado()];
                 }
             }
         }

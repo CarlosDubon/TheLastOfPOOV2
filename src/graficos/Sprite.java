@@ -217,6 +217,22 @@ public class Sprite {
     public static final Sprite KMDIE = new Sprite(48,0,4,HojaSprites.HojaKillMarBlueSprites);
     
     // FIN SPRITES KILLMAR
+        //INICIO SPRITES TAURO
+    public static final Sprite TRDOWN0 = new Sprite(48,1,0,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRDOWN_1 = new Sprite(48,0,0,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRDOWN1 = new Sprite(48,2,0,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRIZ1 = new Sprite(48,0,1,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRIZ0 = new Sprite(48,1,1,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRIZ_1 = new Sprite(48,2,1,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRDE1 = new Sprite(48,1,2,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRDE0 = new Sprite(48,0,2,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRDE_1 = new Sprite(48,2,2,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRUP1 = new Sprite(48,1,3,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRUP0 = new Sprite(48,0,3,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRUP_1 = new Sprite(48,2,3,HojaSprites.HojaTauroSprites);
+    public static final Sprite TRDIE = new Sprite(48,0,4,HojaSprites.HojaTauroSprites);
+    
+    // FIN SPRITES TAOURO
     
 //Fin de la coleccion
     
