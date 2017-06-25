@@ -28,13 +28,14 @@ public class Tauro extends Criatura{
         this.originalX = x;
         this.originalY = y;
         this.isKiller = false;
-        this.ATK = 4;
+        this.ATK = 7;
     }
     @Override
     public void actualizar(){
         desplazamientoX =0;
         desplazamientoY =0;
-        int limiteY = 749;
+        int limiteY = 324;
+        int limiteX = 1110;
         
         if(animacion < 32767){
             animacion++;
@@ -43,7 +44,7 @@ public class Tauro extends Criatura{
         }
         
         if(HP<=0 && !isKiller){
-            jugador.setPuntaje(jugador.getPuntaje()+50);
+            jugador.setPuntaje(jugador.getPuntaje()+100);
             isKiller = true;
         }
         
@@ -60,17 +61,27 @@ public class Tauro extends Criatura{
                 direccion = 'e';
             }
             
-            if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 200){
-                moverX(desplazamientoX,jugador.getX()+24,Velocidad,direccion);
+            if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 150){
+                moverX(desplazamientoX,(jugador.getX()+24),Velocidad,direccion);
                 moverY(desplazamientoY,jugador.getY(),Velocidad,direccion);
             }
             
-            if(y<limiteY){
-                moverY(desplazamientoY,limiteY,Velocidad,'s');
+            if(jugador.getBounds().intersects(getBounds())){
+                jugador.setHP(jugador.getHP()-ATK);
             }
-            if(y>originalY){
-                moverY(desplazamientoY,originalY,Velocidad,'s');
+            
+            if(x==originalX && y==originalY){
+                if(animacion % 80 > 40){
+                    sprite = Sprite.TRDE0;
+                }else if(animacion % 40 > 20){
+                    sprite=Sprite.TRIZ0;
+                }else if(animacion % 20 > 10){
+                    sprite = Sprite.TRUP0;
+                }else if (animacion % 10 > 5){
+                    sprite = Sprite.TRDOWN0;
+                }
             }
+            
             
             
             for(int i =0; i < jugador.arrayDisparos.size();i++){
