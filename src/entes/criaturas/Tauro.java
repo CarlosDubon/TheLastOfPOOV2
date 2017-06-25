@@ -131,7 +131,7 @@ public class Tauro extends Criatura{
             }
     }
     
-    public void moostrar(Pantalla pantalla){
+    public void mostrar(Pantalla pantalla){
         pantalla.mostrarTauro(x, y, this);
     }
     
