@@ -24,7 +24,7 @@ public class Tauro extends Criatura{
         this.jugador = jugador;
         this.mapa = mapa;
         this.HP = 40;
-        this.Velocidad = 3;
+        this.Velocidad = 2;
         this.originalX = x;
         this.originalY = y;
         this.isKiller = false;
