@@ -128,6 +128,5 @@ public class Criatura extends Ente{
         return direccion;
     }
     
-    
-    
+       
 }
