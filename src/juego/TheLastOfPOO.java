@@ -150,7 +150,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private TheLastOfPOO(){
         setPreferredSize(new Dimension(ANCHO, ALTO));
         estado = new Estado();
-        //Estado.estado=2; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
+        Estado.estado=2; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
         
        

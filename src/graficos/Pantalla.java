@@ -283,7 +283,7 @@ public class Pantalla {
                     posicionX = 0;
                 }
                 int colorPixelSkeletor = kill.getSprite().pixeles[x+y*kill.getSprite().getLado()];
-                if(colorPixelSkeletor !=0xff06ff00 ){
+                if(colorPixelSkeletor !=0xffffffff ){
                     pixeles [posicionX + posicionY * ancho] = kill.getSprite().pixeles[x + y * kill.getSprite().getLado()];
                 }
             }
