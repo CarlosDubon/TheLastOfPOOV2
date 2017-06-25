@@ -6,6 +6,7 @@
 package graficos;
 
 import entes.criaturas.Baty;
+import entes.criaturas.BatyRed;
 import entes.criaturas.Disparo;
 import entes.criaturas.Heart;
 import mapa.tile.Tile;
@@ -200,6 +201,26 @@ public class Pantalla {
                 int colorPixelBaty = baty.getSprite().pixeles[x+y*baty.getSprite().getLado()];
                 if(colorPixelBaty !=0xff00ff12 ){
                     pixeles [posicionX + posicionY * ancho] = baty.getSprite().pixeles[x + y * baty.getSprite().getLado()];
+                }
+            }
+        }
+    }
+        public void mostrarBatyRed(int compensacionX, int compensacionY, BatyRed batyRed){
+        compensacionX -=diferenciaX;
+        compensacionY -= diferenciaY;
+        for(int y =0 ; y < batyRed.getSprite().getLado();y++){ 
+            int posicionY = y + compensacionY;
+            for(int x = 0; x<batyRed.getSprite().getLado(); x++){
+                int posicionX = x + compensacionX;
+                if(posicionX < -batyRed.getSprite().getLado() || posicionX >= ancho || posicionY < 0 || posicionY >= alto){
+                    break;
+                }
+                if(posicionX < 0){
+                    posicionX = 0;
+                }
+                int colorPixelBatyRed = batyRed.getSprite().pixeles[x+y*batyRed.getSprite().getLado()];
+                if(colorPixelBatyRed !=0xff00ff12 ){
+                    pixeles [posicionX + posicionY * ancho] = batyRed.getSprite().pixeles[x + y * batyRed.getSprite().getLado()];
                 }
             }
         }
