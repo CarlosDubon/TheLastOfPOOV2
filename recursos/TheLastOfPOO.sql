@@ -17,3 +17,5 @@ CREATE TABLE Jugador(
 	puntaje int not null
 )
 
+delete from jugador
+
