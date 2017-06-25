@@ -138,7 +138,7 @@ public class Sprite {
     public static final Sprite BATADIE = new Sprite(48,0,4,HojaSprites.HojaBatSprites);
 
     // FIN SPRITES MURCIELAGOS
-    //SPRITES MURCIELAGO
+    //SPRITES MURCIELAGO ROJO
     public static final Sprite BATRINICIO0 = new Sprite(48,1,0,HojaSprites.HojaBatRedSprites);
     public static final Sprite BATRINICIO1 = new Sprite(48,0,0,HojaSprites.HojaBatRedSprites);
     public static final Sprite BATRINICIO_1 = new Sprite(48,2,0,HojaSprites.HojaBatRedSprites);
@@ -153,7 +153,23 @@ public class Sprite {
     public static final Sprite BATRABAJO_1 = new Sprite(48,2,3,HojaSprites.HojaBatRedSprites);
     public static final Sprite BATRADIE = new Sprite(48,0,4,HojaSprites.HojaBatRedSprites);
 
-    // FIN SPRITES MURCIELAGOS
+    // FIN SPRITES MURCIELAGOS RJO
+        //SPRITES ESQUELETO VERDE
+    public static final Sprite SKINICIO0 = new Sprite(48,1,0,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKINICIO1 = new Sprite(48,0,0,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKINICIO_1 = new Sprite(48,2,0,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKIZ0 = new Sprite(48,1,1,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKIZ1 = new Sprite(48,0,1,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKIZ_1 = new Sprite(48,2,1,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKDE0 = new Sprite(48,1,2,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKDE1 = new Sprite(48,0,2,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKDE_1 = new Sprite(48,2,2,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKABAJO0 = new Sprite(48,1,3,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKABAJO1 = new Sprite(48,0,3,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKABAJO_1 = new Sprite(48,2,3,HojaSprites.HojaSkeletorSprites);
+    public static final Sprite SKADIE = new Sprite(48,0,4,HojaSprites.HojaSkeletorSprites);
+
+    // FIN SPRITES ESQUELETO VERDE
 //Fin de la coleccion
     
     public Sprite(final int lado, final int columna, final int fila, final HojaSprites hoja){
