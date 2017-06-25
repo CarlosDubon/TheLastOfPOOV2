@@ -80,8 +80,8 @@ public class BatyRed extends Criatura {
             for(int i =0; i < jugador.arrayDisparos.size();i++){
                 if(jugador.arrayDisparos.get(i).getBounds().intersects(getBounds())){
                     this.HP = HP-jugador.getAtk();
-                    jugador.arrayDisparos.get(i).setStaticX(jugador.arrayDisparos.get(i).getX()+1000);
-                    jugador.arrayDisparos.get(i).setY(-700);
+                    jugador.arrayDisparos.get(i).setStaticX(0);
+                    jugador.arrayDisparos.get(i).setStaticY(0);
                 }
             }
             

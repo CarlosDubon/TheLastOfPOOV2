@@ -82,8 +82,8 @@ public class Skeletor extends Criatura {
             for(int i =0; i < jugador.arrayDisparos.size();i++){
                 if(jugador.arrayDisparos.get(i).getBounds().intersects(getBounds())){
                     HP = HP - jugador.getAtk();
-                    jugador.arrayDisparos.get(i).setStaticX(jugador.arrayDisparos.get(i).getY()+1000);
-                    jugador.arrayDisparos.get(i).setY(-500);
+                    jugador.arrayDisparos.get(i).setStaticX(0);
+                    jugador.arrayDisparos.get(i).setStaticY(0);
                 }
             }
             if(direccion == 'o'){

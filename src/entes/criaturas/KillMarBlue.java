@@ -93,8 +93,8 @@ public class KillMarBlue extends Criatura {
                     this.sprite=Sprite.KMDIE;
                     
                     HP = HP - jugador.getAtk();
-                    jugador.arrayDisparos.get(i).setStaticX(jugador.arrayDisparos.get(i).getX()+1500);
-                    jugador.arrayDisparos.get(i).setY(jugador.arrayDisparos.get(i).getX()+1500);
+                    jugador.arrayDisparos.get(i).setStaticX(0);
+                    jugador.arrayDisparos.get(i).setStaticY(0);
                     //System.out.println(HP);
                 }
             }
