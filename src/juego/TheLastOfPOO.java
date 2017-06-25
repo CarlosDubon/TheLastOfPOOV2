@@ -42,6 +42,7 @@ import mapa.tile.Tile;
 import database.DBQuery;
 import entes.criaturas.Baty;
 import entes.criaturas.BatyRed;
+import entes.criaturas.Skeletor;
 import threads.Tiempo;
 
 
@@ -90,6 +91,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Baty baty;
     private static Baty baty2;
     private static BatyRed batyRed;
+    private static Skeletor skeletor;
     
     
     private static Key key1;
@@ -144,7 +146,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private TheLastOfPOO(){
         setPreferredSize(new Dimension(ANCHO, ALTO));
         estado = new Estado();
-        //Estado.estado=2; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
+        Estado.estado=2; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
         
        
@@ -247,6 +249,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 }
                 
                 jugador.setMapa(mapa);
+                skeletor.actualizar();
                 portal.actualizar();
                 key2_1.actualizar();
                 key2_2.actualizar();
@@ -303,6 +306,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 key1.mostrar(pantalla);
                 break;
             case 2:
+                skeletor.mostrar(pantalla);
                 portal.mostrar(pantalla);
                 key2_1.mostrar(pantalla);
                 key2_2.mostrar(pantalla);
@@ -565,6 +569,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        
        //Mapa2
        
+       skeletor = new Skeletor(919,718,Sprite.SKINICIO0,jugador,mapa2);
        key2_1=new Key(220, 1430, Sprite.KEY1, jugador, mapa2);
        key2_2=new Key(750, 587, Sprite.KEY1, jugador, mapa2);
        heart2_1= new Heart(1175, 360, Sprite.HEART1, jugador, mapa);
