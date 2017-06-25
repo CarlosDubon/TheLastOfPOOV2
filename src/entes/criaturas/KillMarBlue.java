@@ -24,7 +24,7 @@ public class KillMarBlue extends Criatura {
         this.jugador = jugador;
         this.mapa = mapa;
         this.HP = 60;
-        this.Velocidad = 2;
+        this.Velocidad = 1;
         this.originalX = x;
         this.originalY = y;
         this.isKiller = false;
@@ -53,7 +53,7 @@ public class KillMarBlue extends Criatura {
         
         if(isMove){
             
-            if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 100){
+            if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 150){
                 if(x >= jugador.getX() && y >= jugador.getY()){
                     direccion = 'o';
                 }else{

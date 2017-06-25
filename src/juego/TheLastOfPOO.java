@@ -96,7 +96,10 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Skeletor skeletor;
     private static Mago mago1;
     private static KillMarBlue kill;
-    
+    private static Mago mago2;
+    private static BatyRed batyRed2;
+    private static KillMarBlue kill2;
+    private static Skeletor catrina;
     
     private static Key key1;
     private static Key key2_1;
@@ -151,7 +154,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         setPreferredSize(new Dimension(ANCHO, ALTO));
         estado = new Estado();
         
-        //Estado.estado=2; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
+        Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
         
        
@@ -174,6 +177,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        
        Restock();
        
+       jugador.setStaticX(400);
+       jugador.setStaticY(200);
         addKeyListener(this);
         ventana = new JFrame(TITLE);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -271,6 +276,10 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 mapa=mapa3;
                 jugador.setMapa(mapa);
                 mago1.actualizar();
+                mago2.actualizar();
+                kill2.actualizar();
+                catrina.actualizar();
+                batyRed2.actualizar();
                 heart3_1.actualizar();
                 heart3_2.actualizar();
                 heart3_3.actualizar();
@@ -328,6 +337,10 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             case 3:
                 
                 mago1.mostrar(pantalla);
+                mago2.mostrar(pantalla);
+                kill2.mostrar(pantalla);
+                catrina.mostrar(pantalla);
+                batyRed2.mostrar(pantalla);
                 
                 heart3_1.mostrar(pantalla);
                 heart3_2.mostrar(pantalla);
@@ -591,6 +604,10 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        
        //Mapa 3
        mago1=  new Mago(919,260,Sprite.MGRINICIO0,jugador,mapa);
+       mago2 = new Mago(410,1296,Sprite.MGRINICIO0,jugador,mapa);
+       catrina = new Skeletor(764,1836,Sprite.SKINICIO0,jugador,mapa);
+       kill2 = new KillMarBlue(1784,1461,Sprite.KMDOWN0,jugador,mapa);
+       batyRed2 = new BatyRed(1913,415,Sprite.BATRIZ0,jugador,mapa);
        heart3_1= new Heart(1916, 290, Sprite.HEART1, jugador, mapa);
        heart3_2= new Heart(1770, 950, Sprite.HEART1, jugador, mapa);
        heart3_3= new Heart(448, 1535, Sprite.HEART1, jugador, mapa);
