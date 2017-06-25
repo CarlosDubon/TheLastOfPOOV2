@@ -138,6 +138,22 @@ public class Sprite {
     public static final Sprite BATADIE = new Sprite(48,0,4,HojaSprites.HojaBatSprites);
 
     // FIN SPRITES MURCIELAGOS
+    //SPRITES MURCIELAGO
+    public static final Sprite BATRINICIO0 = new Sprite(48,1,0,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRINICIO1 = new Sprite(48,0,0,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRINICIO_1 = new Sprite(48,2,0,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRIZ0 = new Sprite(48,1,1,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRIZ1 = new Sprite(48,0,1,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRIZ_1 = new Sprite(48,2,1,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRDE0 = new Sprite(48,1,2,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRDE1 = new Sprite(48,0,2,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRDE_1 = new Sprite(48,2,2,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRABAJO0 = new Sprite(48,1,3,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRABAJO1 = new Sprite(48,0,3,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRABAJO_1 = new Sprite(48,2,3,HojaSprites.HojaBatRedSprites);
+    public static final Sprite BATRADIE = new Sprite(48,0,4,HojaSprites.HojaBatRedSprites);
+
+    // FIN SPRITES MURCIELAGOS
 //Fin de la coleccion
     
     public Sprite(final int lado, final int columna, final int fila, final HojaSprites hoja){

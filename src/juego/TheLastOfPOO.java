@@ -41,6 +41,7 @@ import mapa.MapaCargado;
 import mapa.tile.Tile;
 import database.DBQuery;
 import entes.criaturas.Baty;
+import entes.criaturas.BatyRed;
 import threads.Tiempo;
 
 
@@ -88,6 +89,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Portal portal;
     private static Baty baty;
     private static Baty baty2;
+    private static BatyRed batyRed;
+    
     
     private static Key key1;
     private static Key key2_1;
@@ -219,6 +222,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 plasta.actualizar();
                 baty.actualizar();
                 baty2.actualizar();
+                
+                batyRed.actualizar();
                 //plasta2.actualizar();
                 heart1.actualizar();
                 heart2.actualizar();
@@ -287,6 +292,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 plasta.mostrar(pantalla);
                 baty.mostrar(pantalla);
                 baty2.mostrar(pantalla);
+                batyRed.mostrar(pantalla);
                 //plasta2.mostrar(pantalla);
                 portal.mostrar(pantalla);
                 heart1.mostrar(pantalla);
@@ -362,6 +368,9 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             if(Nick == null && !Active){
                 Active=true;
                 Nick=JOptionPane.showInputDialog(this, "Nickname: ", "GAME OVER", JOptionPane.QUESTION_MESSAGE);
+                if(Nick.isEmpty()){
+                    Nick = "No nick";
+                }
                 BaseDeDatos.insertJugador(Nick, jugador.getPuntaje());
                 
                 //System.out.println(Nick);
@@ -384,10 +393,10 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             for(int i=0; i< Top10.length;i++){
                 if(Top10[i]!= null){
                     if(i<5){
-                        g.drawString((i+1)+". "+Top10[i].getNick()+"  "+Top10[i].getScore(), xScore, yScore+(i*My));
+                        g.drawString((i+1)+". "+Top10[i].getNick()+" \t "+Top10[i].getScore(), xScore, yScore+(i*My));
                     }
                     else{
-                        g.drawString((i+1)+". "+Top10[i].getNick()+"  "+Top10[i].getScore(), xScore+Mx, yScore+((i-5)*My));
+                        g.drawString((i+1)+". "+Top10[i].getNick()+" \t "+Top10[i].getScore(), xScore+Mx, yScore+((i-5)*My));
                     }
                }
                 
@@ -550,6 +559,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        portal = new Portal(1500,875,Sprite.PORTAL1,jugador,mapa);
        baty = new Baty(1050,390,Sprite.BATIZ0,jugador,mapa);
        baty2 = new Baty(587,1046,Sprite.BATIZ0,jugador,mapa);
+       batyRed = new BatyRed(1383,858,Sprite.BATRIZ0,jugador,mapa);
+       
 
        
        //Mapa2
