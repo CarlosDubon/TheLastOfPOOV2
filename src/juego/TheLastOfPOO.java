@@ -48,7 +48,7 @@ import threads.Tiempo;
  *
  * @author Carlos
  */
-public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
+public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
 
 
     private static final long serialVersionUID = 1L;
@@ -98,12 +98,27 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Heart heart1;
     private static Heart heart2;
     private static Heart heart3;
+    private static Heart heart4;
+    private static Heart heart5;
+    
+    private static Heart heart2_1;
+    private static Heart heart2_2;
+    private static Heart heart2_3;
+    private static Heart heart2_4;
+    private static Heart heart2_5;
+    
+    private static Heart heart3_1;
+    private static Heart heart3_2;
+    private static Heart heart3_3;
+    private static Heart heart3_4;
+    private static Heart heart3_5;
+    private static Heart heart3_6;
     
     private Teclado teclado;
     private String Nick=null; // A la hora de dar start resetear el nick
     private static Pantalla pantalla;
     
-    private static DBQuery BaseDeDatos;
+    private final static DBQuery BaseDeDatos = new DBQuery();
     private static Puntaje[] Top10;
     
     private static int CursorX;        
@@ -128,7 +143,7 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         estado = new Estado();
         //Estado.estado=2; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
-        teclado = new Teclado();
+        
        
         try {
             Menu = ImageIO.read(new File(".\\.\\recursos\\texturas\\GameMenu.png"));
@@ -137,14 +152,7 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         } catch (IOException ex) {
             System.out.println(ex);
         }
-       
-       segundos=0;
-       tiempo=new Tiempo();
-       THilo= new Thread(tiempo);
-       
-        
-       BaseDeDatos= new DBQuery();
-       
+             
        mapa= new MapaCargado("/texturas/InicioPixel.png");
        mapa1 = new MapaCargado("/texturas/InicioPixel.png");
        mapa1Keyed= new MapaCargado("/texturas/InicioPixel2.png");
@@ -153,29 +161,9 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        mapa2Keyed_1 = new MapaCargado("/texturas/mapa2_1.png");
        mapa2Keyed_2 = new MapaCargado("/texturas/mapa2_2.png");
        mapa3 = new MapaCargado("/texturas/mapa3.png");
-       jugador = new Jugador(teclado,367,350,Sprite.INICIAL0,mapa);
-       //disparo = new Disparo(teclado,367,350,Sprite.DISPARO1,jugador,mapa);
-       plasta = new Plasta(teclado,1200,500,Sprite.PLASTAIN0,jugador,mapa);
-       baty = new Baty(1050,390,Sprite.BATIZ0,jugador,mapa);
-       baty2 = new Baty(587,1046,Sprite.BATIZ0,jugador,mapa);
-       //plasta2 = new Plasta(teclado,552,376,Sprite.PLASTAIN0,jugador,mapa);
-       portal = new Portal(1500,875,Sprite.PORTAL1,jugador,mapa);
        
-        //Llaves
-       key1=new Key(450, 1270, Sprite.KEY1, jugador, mapa);
-       key2_1=new Key(230, 1430, Sprite.KEY1, jugador, mapa);
-       key2_2=new Key(755, 600, Sprite.KEY1, jugador, mapa);
+       Restock();
        
-       
-       //Corazones
-       heart1= new Heart(428, 788, Sprite.HEART1, jugador, mapa);
-       heart2= new Heart(444, 788, Sprite.HEART1, jugador, mapa);
-       heart3= new Heart(436, 788+16, Sprite.HEART1, jugador, mapa);
-       
-       CursorX = 200;
-       CursorY = 278;
-
-        addKeyListener(teclado);
         addKeyListener(this);
         ventana = new JFrame(TITLE);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -235,6 +223,8 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 heart1.actualizar();
                 heart2.actualizar();
                 heart3.actualizar();
+                heart4.actualizar();
+                heart5.actualizar();
                 portal.actualizar();
                 key1.actualizar();
                 break;
@@ -255,10 +245,24 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 portal.actualizar();
                 key2_1.actualizar();
                 key2_2.actualizar();
+                
+                heart2_1.actualizar();
+                heart2_2.actualizar();
+                heart2_3.actualizar();
+                heart2_4.actualizar();
+                heart2_5.actualizar();
+                
                 break;
             case 3:
                 mapa=mapa3;
                 jugador.setMapa(mapa);
+                
+                heart3_1.actualizar();
+                heart3_2.actualizar();
+                heart3_3.actualizar();
+                heart3_4.actualizar();
+                heart3_5.actualizar();
+                heart3_6.actualizar();
                 break;
         }
         if (Estado.estado != 0 && Estado.estado != 4)
@@ -288,14 +292,31 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 heart1.mostrar(pantalla);
                 heart2.mostrar(pantalla);
                 heart3.mostrar(pantalla);
+                heart4.mostrar(pantalla);
+                heart5.mostrar(pantalla);
                 key1.mostrar(pantalla);
                 break;
             case 2:
                 portal.mostrar(pantalla);
                 key2_1.mostrar(pantalla);
                 key2_2.mostrar(pantalla);
+                
+                heart2_1.mostrar(pantalla);
+                heart2_2.mostrar(pantalla);
+                heart2_3.mostrar(pantalla);
+                heart2_4.mostrar(pantalla);
+                heart2_5.mostrar(pantalla);
+                
                 break;
             case 3:
+                
+                heart3_1.mostrar(pantalla);
+                heart3_2.mostrar(pantalla);
+                heart3_3.mostrar(pantalla);
+                heart3_4.mostrar(pantalla);
+                heart3_5.mostrar(pantalla);
+                heart3_6.mostrar(pantalla);
+                
                 break;
         }
         jugador.mostrar(pantalla);
@@ -371,13 +392,8 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                }
                 
             }
-
-                
-                                 
+               
         }
-        
-
-
         g.dispose();
         estrategia.show();
         fps++;
@@ -503,13 +519,16 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     }
     
     public void Restock(){
-        teclado= new Teclado();
-        addKeyListener(teclado);
+       teclado= new Teclado();
+       addKeyListener(teclado);
         
-        Active=false;
-        BlockedMapa1=false;
+       CursorX = 200;
+       CursorY = 278;
         
-        Nick=null;
+       Active=false;
+       BlockedMapa1=false;
+        
+       Nick=null;
        
        mapa=mapa1;
        
@@ -518,16 +537,40 @@ public class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        THilo=new Thread(tiempo);
        ControlTiempo=false;
        
+       //Mapa1
+       
        jugador = new Jugador(teclado,367,350,Sprite.INICIAL0,mapa);
        plasta = new Plasta(teclado,1200,500,Sprite.PLASTAIN0,jugador,mapa);
        key1=new Key(450, 1270, Sprite.KEY1, jugador, mapa1);
+       heart1= new Heart(428, 788, Sprite.HEART1, jugador, mapa);
+       heart2= new Heart(444, 788, Sprite.HEART1, jugador, mapa);
+       heart3= new Heart(436, 788+16, Sprite.HEART1, jugador, mapa);
+       heart4= new Heart(1272, 190, Sprite.HEART1, jugador, mapa);
+       heart5= new Heart(1450, 875, Sprite.HEART1, jugador, mapa);
        portal = new Portal(1500,875,Sprite.PORTAL1,jugador,mapa);
        baty = new Baty(1050,390,Sprite.BATIZ0,jugador,mapa);
        baty2 = new Baty(587,1046,Sprite.BATIZ0,jugador,mapa);
 
        
+       //Mapa2
+       
        key2_1=new Key(220, 1430, Sprite.KEY1, jugador, mapa2);
        key2_2=new Key(750, 587, Sprite.KEY1, jugador, mapa2);
+       heart2_1= new Heart(1175, 360, Sprite.HEART1, jugador, mapa);
+       heart2_2= new Heart(480, 1530, Sprite.HEART1, jugador, mapa);
+       heart2_3= new Heart(1125, 1320, Sprite.HEART1, jugador, mapa);
+       heart2_4= new Heart(1125+16, 1320, Sprite.HEART1, jugador, mapa);
+       heart2_5= new Heart(1125+8, 1320+16, Sprite.HEART1, jugador, mapa);
+       
+       
+       //Mapa 3
+       
+       heart3_1= new Heart(1916, 290, Sprite.HEART1, jugador, mapa);
+       heart3_2= new Heart(1770, 950, Sprite.HEART1, jugador, mapa);
+       heart3_3= new Heart(448, 1535, Sprite.HEART1, jugador, mapa);
+       heart3_4= new Heart(675, 805, Sprite.HEART1, jugador, mapa);
+       heart3_5= new Heart(675+16, 805, Sprite.HEART1, jugador, mapa);
+       heart3_6= new Heart(675+8, 805+16, Sprite.HEART1, jugador, mapa);
     }
     
     
