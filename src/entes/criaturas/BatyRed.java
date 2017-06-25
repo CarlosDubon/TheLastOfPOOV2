@@ -23,12 +23,12 @@ public class BatyRed extends Criatura {
         this.sprite = sprite;
         this.jugador = jugador;
         this.mapa = mapa;
-        this.HP = 40;
+        this.HP = 45;
         this.Velocidad = 2;
         this.originalX = x;
         this.originalY = y;
         this.isKiller = false;
-        this.ATK = 4;
+        this.ATK = 5;
         this.direccion = 'o';
     
     }
@@ -44,7 +44,7 @@ public class BatyRed extends Criatura {
         }
         
         if(HP<=0 && !isKiller){
-            jugador.setPuntaje(jugador.getPuntaje()+40);
+            jugador.setPuntaje(jugador.getPuntaje()+45);
             isKiller = true;
         }
         
@@ -62,11 +62,11 @@ public class BatyRed extends Criatura {
             }
 
             
-            if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 150){
+            if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 200){
                 moverX(desplazamientoX,jugador.getX(),Velocidad,direccion);
                 moverY(desplazamientoY,jugador.getY(),Velocidad,direccion);
-                if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) < 75){
-                    Velocidad = 3;
+                if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) < 100){
+                    Velocidad = 4;
                 }else{
                     Velocidad = 2;
                 }
