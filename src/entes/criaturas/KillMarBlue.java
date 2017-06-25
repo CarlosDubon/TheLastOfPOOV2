@@ -41,7 +41,7 @@ public class KillMarBlue extends Criatura {
         }
         
         if(HP<=0 && !isKiller){
-            jugador.setPuntaje(jugador.getPuntaje()+45);
+            jugador.setPuntaje(jugador.getPuntaje()+60);
             isKiller = true;
         }
         
