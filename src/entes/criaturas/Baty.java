@@ -64,7 +64,7 @@ public class Baty extends Criatura {
 
             
             if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 150){
-                moverX(desplazamientoX,jugador.getX(),Velocidad,direccion);
+                moverX(desplazamientoX,jugador.getX()+24,Velocidad,direccion);
                 moverY(desplazamientoY,jugador.getY(),Velocidad,direccion);
                 if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) < 75){
                     Velocidad = 3;

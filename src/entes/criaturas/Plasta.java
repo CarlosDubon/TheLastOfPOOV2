@@ -23,6 +23,7 @@ public class Plasta extends Criatura {
     private Teclado teclado;
     private Jugador jugador;
 
+
     
     
     
@@ -73,10 +74,11 @@ public class Plasta extends Criatura {
                 direccion = 'e';
             }
             if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 100){
-                    moverX(desplazamientoX,jugador.getX(),Velocidad,direccion);
+                    moverX(desplazamientoX,jugador.getX()+24,Velocidad,direccion);
                     moverY(desplazamientoY,jugador.getY(),Velocidad,direccion);
-                            
+                                               
             }
+           
             if(jugador.getBounds().intersects(getBounds())){
                 jugador.setHP(jugador.getHP()-ATK);
             }

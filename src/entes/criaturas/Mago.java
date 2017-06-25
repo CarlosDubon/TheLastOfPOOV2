@@ -12,29 +12,69 @@ import mapa.Mapa;
 
 /**
  *
- * @author Carlos
+ * @author Dougl
  */
-public class Skeletor extends Criatura {
+public class Mago extends Criatura{
     private Jugador jugador;
-    public Skeletor(int x, int y,Sprite sprite, Jugador jugador,Mapa mapa){
+    private Sprite Izq1;
+    private Sprite Izq0;
+    private Sprite Izq_1;
+    private Sprite Der1;
+    private Sprite Der0;
+    private Sprite Der_1;
+    private Sprite Up1;
+    private Sprite Up0;
+    private Sprite Up_1;
+    private Sprite Dwn1;
+    private Sprite Dwn0;
+    private Sprite Dwn_1;
+    public Mago(int x, int y,Sprite sprite, Jugador jugador,Mapa mapa){
         this.x = x;
         this.y = y;
         this.sprite = sprite;
         this.jugador = jugador;
         this.mapa = mapa;
-        this.HP = 30;
+        this.HP = 50;
         this.Velocidad = 1;
         this.originalX = x;
         this.originalY = y;
         this.isKiller = false;
         this.ATK = 10;
     }
+    
     @Override
     public void actualizar(){
         desplazamientoX =0;
         desplazamientoY =0;
-        int limiteX = 568;
-        int limiteY = 456;
+        
+        if(HP >= 25){
+            Izq1= Sprite.MGRIZ1;
+            Izq0 = Sprite.MGRIZ0;
+            Izq_1= Sprite.MGRIZ_1;
+            Der1= Sprite.MGRDE1;
+            Der0=Sprite.MGRDE0;
+            Der_1=Sprite.MGRDE_1;
+            Up1= Sprite.MGRABAJO1;
+            Up0= Sprite.MGRABAJO0;
+            Up_1= Sprite.MGRABAJO_1;
+            Dwn1 = Sprite.MGRINICIO1;
+            Dwn0=Sprite.MGRINICIO0;
+            Dwn_1= Sprite.MGRINICIO_1;
+        }else{
+            ATK=20;
+            Izq1= Sprite.MGAIZ1;
+            Izq0 = Sprite.MGAIZ0;
+            Izq_1= Sprite.MGAIZ_1;
+            Der1= Sprite.MGADE1;
+            Der0=Sprite.MGADE0;
+            Der_1=Sprite.MGADE_1;
+            Up1= Sprite.MGAABAJO1;
+            Up0= Sprite.MGAABAJO0;
+            Up_1= Sprite.MGAABAJO_1;
+            Dwn1 = Sprite.MGAINICIO1;
+            Dwn0=Sprite.MGAINICIO0;
+            Dwn_1= Sprite.MGAINICIO_1;
+        }
         
         if(animacion < 32767){
             animacion++;
@@ -61,24 +101,20 @@ public class Skeletor extends Criatura {
             if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 250){
                     moverX(desplazamientoX,jugador.getX()+24,Velocidad,direccion);
                     moverY(desplazamientoY,jugador.getY(),Velocidad,direccion);
-                            
-            }
+                    if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) < 75){
+                        Velocidad = 2;
+                    }else{
+                        Velocidad = 1;
+                    }
+            }else{
+                moverX(desplazamientoX,originalX,Velocidad,direccion);
+                moverY(desplazamientoY,originalY,Velocidad,direccion);
+            }        
+            
             if(jugador.getBounds().intersects(getBounds())){
                 jugador.setHP(jugador.getHP()-ATK);
             }
             
-            if(x-limiteX > 0 && y-limiteY == 262){
-                moverX(desplazamientoX,limiteX,Velocidad,'o');
-            }
-            if(x-limiteX ==0){
-                moverY(desplazamientoX,limiteY,Velocidad,'n');
-            }
-            if((y-limiteY)==0){
-                moverX(desplazamientoX,originalX,Velocidad,'e');
-            }
-            if((originalY-y > 0) && x-limiteX == 351){
-                moverY(desplazamientoY,originalY,Velocidad,'s');
-            }
             for(int i =0; i < jugador.arrayDisparos.size();i++){
                 if(jugador.arrayDisparos.get(i).getBounds().intersects(getBounds())){
                     HP = HP - jugador.getAtk();
@@ -87,53 +123,52 @@ public class Skeletor extends Criatura {
                 }
             }
             if(direccion == 'o'){
-                sprite = Sprite.SKIZ0;
+                sprite = Izq0;
                  if(isMove){
                     if(animacion % 40 > 20){
-                        sprite = Sprite.SKIZ1;
+                        sprite = Izq1;
                     }else{
-                        sprite = Sprite.SKIZ_1;
+                        sprite = Izq_1;
                     }
                 }
               }
             if(direccion == 's'){   
-               sprite = Sprite.SKINICIO0;
+               sprite = Dwn0;
                    if(animacion % 40 > 20){
-                       sprite = Sprite.SKINICIO1;
+                       sprite = Dwn1;
                    }else{
-                        sprite = Sprite.SKINICIO_1;
+                        sprite = Dwn_1;
                    }
             }
             if(direccion == 'e'){   
-               sprite = Sprite.SKDE0;
+               sprite = Der0;
                    if(animacion % 40 > 20){
-                       sprite = Sprite.SKDE1;
+                       sprite = Der1;
                    }else{
-                        sprite = Sprite.SKDE_1;
+                        sprite = Der_1;
                    }
                 
             }
             if(direccion == 'n'){   
-               sprite = Sprite.SKABAJO0;
+               sprite = Up0;
                    if(animacion % 40 > 20){
-                       sprite = Sprite.SKABAJO1;
+                       sprite = Up1;
                    }else{
-                        sprite = Sprite.SKABAJO_1;
+                        sprite = Up_1;
                    }
                 
             }
             
         }else{
-            sprite = Sprite.SKADIE;
+            sprite = Sprite.MGDIE;
         }
     }
     
     public void mostrar(Pantalla pantalla){
-        pantalla.mostrarSkeletor(x, y, this);
+        pantalla.mostrarMago(x, y, this);
     }
     
     public Rectangle getBounds(){
         return new Rectangle(x,y,48,48);
     }
-    
 }
