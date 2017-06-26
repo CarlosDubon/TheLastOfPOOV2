@@ -90,9 +90,9 @@ public class FinalBoss extends Criatura{
                 y+=2;   
             }else if(contador < 960/2){
                 y-=2;
-            }else if(contador < 1020/2){
+            }else if(contador < (1080)/2){
                 direccion=DireccionAux;
-            }else if(contador < 1080/2){
+            }else if(contador < (1080+60)/2){
                 if(x<jugador.getX()){
                     direccion = 'e';
                 }else{
@@ -112,6 +112,12 @@ public class FinalBoss extends Criatura{
                     HP = HP - jugador.getAtk();
                     jugador.arrayDisparos.get(i).setStaticX(0);
                     jugador.arrayDisparos.get(i).setStaticY(0);
+                }
+            }
+            for(int i = 0;i<arrayDisparosZ.size();i++ ){
+                if(arrayDisparosZ.get(i).getBounds().intersects(jugador.getBounds())){
+                    jugador.setHP(jugador.getHP()-ATK);
+
                 }
             }
             

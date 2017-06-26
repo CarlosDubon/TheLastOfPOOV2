@@ -277,8 +277,8 @@ public class Sprite {
     public static final Sprite FBDIE = new Sprite(70,0,4,HojaSprites.HijaFinalBossSprites);
     
     // FIN SPRITES TAOURO
-    public static final Sprite DZ1 = new Sprite(70,0,0,HojaSprites.HijaFinalBossSprites);
-    public static final Sprite DZ2 = new Sprite(70,1,0,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite DZ2 = new Sprite(70,0,0,HojaSprites.HojaDisparoZSprites);
+    public static final Sprite DZ1 = new Sprite(70,1,0,HojaSprites.HojaDisparoZSprites);
     
     
 //Fin de la coleccion
