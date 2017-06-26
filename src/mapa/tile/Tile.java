@@ -28,6 +28,7 @@ public  class Tile {
     public static final Tile DERECHAL = new Tile(Sprite.DERECHAL, true);
     public static final Tile IZQUIERDAL = new Tile(Sprite.IZQUIERDAL, true);
     public static final Tile AGUA = new Tile(Sprite.AGUA, true);
+    public static final Tile AGUA2 = new Tile(Sprite.AGUA2, true);
     public static final Tile BOSQUE = new Tile(Sprite.BOSQUE, true);
     public static final Tile ARENA = new Tile(Sprite.ARENA);
     public static final Tile PIEDRA = new Tile(Sprite.PIEDRA,true);
@@ -45,6 +46,14 @@ public  class Tile {
     public static final Tile ABAJOLAVA = new Tile(Sprite.ABAJOLAVA, true);
     public static final Tile IZQUIERDALAVA = new Tile(Sprite.IZQUIERDALAVA, true);
     public static final Tile DERECHALAVA = new Tile(Sprite.DERECHALAVA, true);
+    public static final Tile ESILAVA2 = new Tile(Sprite.ESILAVA2,true);
+    public static final Tile ESDLAVA2 = new Tile(Sprite.ESDLAVA2,true);
+    public static final Tile EIILAVA2 = new Tile(Sprite.EIILAVA2, true);
+    public static final Tile EIDLAVA2 = new Tile(Sprite.EIDLAVA2, true);
+    public static final Tile ARRIBALAVA2 = new Tile(Sprite.ARRIBALAVA2, true);
+    public static final Tile ABAJOLAVA2 = new Tile(Sprite.ABAJOLAVA2, true);
+    public static final Tile IZQUIERDALAVA2 = new Tile(Sprite.IZQUIERDALAVA2, true);
+    public static final Tile DERECHALAVA2 = new Tile(Sprite.DERECHALAVA2, true);
 
     
     //FIN

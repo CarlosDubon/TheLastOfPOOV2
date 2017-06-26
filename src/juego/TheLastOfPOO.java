@@ -44,6 +44,7 @@ import entes.criaturas.Baty;
 import entes.criaturas.BatyRed;
 import entes.criaturas.KillMarBlue;
 import entes.criaturas.Mago;
+import entes.criaturas.MagoT;
 import entes.criaturas.Skeletor;
 import entes.criaturas.Tauro;
 import threads.Tiempo;
@@ -96,10 +97,18 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Mago mago1;
     private static KillMarBlue kill;
     private static Mago mago2;
+    private static MagoT magoT1;
+    private static MagoT magoT2;
+    private static MagoT magoT3;
     private static BatyRed batyRed2;
     private static KillMarBlue kill2;
+    private static KillMarBlue kill3;
+    private static Skeletor catrina2;
+    private static Mago mago3;
+    private static MagoT magoT4;
     private static Skeletor catrina;
     private static Tauro tauro;
+    private static Tauro tauro2;
     private static Baty batyBlue2;
     
     private static Key key1;
@@ -155,7 +164,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         setPreferredSize(new Dimension(ANCHO, ALTO));
         estado = new Estado();
         
-        Estado.estado=2; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
+        //Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
         
        
@@ -177,6 +186,9 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        mapa3 = new MapaCargado("/texturas/mapa3.png");
        
        Restock();
+       
+       //jugador.setStaticX(400);
+       //jugador.setStaticY(280);
        
         addKeyListener(this);
         ventana = new JFrame(TITLE);
@@ -277,9 +289,17 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 mapa=mapa3;
                 jugador.setMapa(mapa);
                 mago1.actualizar();
+                magoT1.actualizar();
+                magoT2.actualizar();
+                magoT3.actualizar();
+                magoT4.actualizar();
                 mago2.actualizar();
+                mago3.actualizar();
                 kill2.actualizar();
+                kill3.actualizar();
+                tauro2.actualizar();
                 catrina.actualizar();
+                catrina2.actualizar();
                 batyRed2.actualizar();
                 heart3_1.actualizar();
                 heart3_2.actualizar();
@@ -340,9 +360,17 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             case 3:
                 
                 mago1.mostrar(pantalla);
+                magoT1.mostrar(pantalla);
+                magoT2.mostrar(pantalla);
+                magoT3.mostrar(pantalla);
+                magoT4.mostrar(pantalla);
                 mago2.mostrar(pantalla);
+                mago3.mostrar(pantalla);
                 kill2.mostrar(pantalla);
+                kill3.mostrar(pantalla);
+                tauro2.mostrar(pantalla);
                 catrina.mostrar(pantalla);
+                catrina2.mostrar(pantalla);
                 batyRed2.mostrar(pantalla);
                 
                 heart3_1.mostrar(pantalla);
@@ -609,9 +637,17 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        
        //Mapa 3
        mago1=  new Mago(919,260,Sprite.MGRINICIO0,jugador,mapa);
+       mago3=  new Mago(1945,1220,Sprite.MGRINICIO0,jugador,mapa);
        mago2 = new Mago(410,1296,Sprite.MGRINICIO0,jugador,mapa);
+       magoT1=  new MagoT(1270,265,Sprite.MGTINICIO0,jugador,mapa,1270,265-(5*32));
+       magoT2=  new MagoT(1913,1776,Sprite.MGTINICIO0,jugador,mapa,1913+(6*32),1776+(5*32));
+       magoT3=  new MagoT(1500,1800,Sprite.MGTINICIO0,jugador,mapa,1500,1800+(6*32));
+       magoT4=  new MagoT(410,930,Sprite.MGTINICIO0,jugador,mapa,410-(6*32),930);
        catrina = new Skeletor(764,1836,Sprite.SKINICIO0,jugador,mapa);
+       catrina2 = new Skeletor(1928,816,Sprite.SKINICIO0,jugador,mapa);
        kill2 = new KillMarBlue(1784,1461,Sprite.KMDOWN0,jugador,mapa);
+       kill3 = new KillMarBlue(920,530,Sprite.KMDOWN0,jugador,mapa);
+       tauro2 = new Tauro(1545,710,Sprite.TRDOWN0,jugador,mapa);
        batyRed2 = new BatyRed(1913,415,Sprite.BATRIZ0,jugador,mapa);
        heart3_1= new Heart(1916, 290, Sprite.HEART1, jugador, mapa);
        heart3_2= new Heart(1770, 950, Sprite.HEART1, jugador, mapa);

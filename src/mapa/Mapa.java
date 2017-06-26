@@ -42,7 +42,7 @@ public abstract class Mapa {
     }
     
     public void mostrar(final int compensacionX,final int compensacionY,Pantalla pantalla){
-        
+        this.generarMapa();
         pantalla.resetDiferencia(compensacionX, compensacionY);
         int o = compensacionX >> 5; // /32
         int e = (compensacionX + pantalla.getAncho()+Tile.LADO)>> 5;
@@ -57,6 +57,11 @@ public abstract class Mapa {
                     cuadrosCatalogo[x + y * ancho].mostrar(x, y, pantalla);
                 }
             }
+        }
+        if(MapaCargado.cont < 32767){
+            MapaCargado.cont++;
+        }else{
+            MapaCargado.cont =0;
         }
     }
     

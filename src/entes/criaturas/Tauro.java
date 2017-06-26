@@ -28,7 +28,7 @@ public class Tauro extends Criatura{
         this.originalX = x;
         this.originalY = y;
         this.isKiller = false;
-        this.ATK = 7;
+        this.ATK = 4;
     }
     @Override
     public void actualizar(){
@@ -55,11 +55,16 @@ public class Tauro extends Criatura{
         }
         
         if(isMove){
-            if(x >= jugador.getX() && y >= jugador.getY()){
+            if(x >= jugador.getX()){
                 direccion = 'o';
-            }else if(x < jugador.getX() && y < jugador.getY()){
+            }else if(x < jugador.getX() ){
                 direccion = 'e';
+            }else if( y < jugador.getY()){
+                direccion = 's';
+            }else if(y >= jugador.getY()){
+                direccion= 'n';
             }
+            
             
             if(Math.sqrt(Math.pow(y-jugador.getY(),2) + Math.pow(x-jugador.getX(),2)) <= 150){
                 moverX(desplazamientoX,(jugador.getX()+24),Velocidad,direccion);

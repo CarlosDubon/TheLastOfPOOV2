@@ -5,6 +5,7 @@
  */
 package mapa;
 
+import graficos.Sprite;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -17,6 +18,7 @@ import mapa.tile.Tile;
 public class MapaCargado extends Mapa {
     
     private int[] pixeles;
+    public static int cont;
     
     public MapaCargado(String ruta) {
         super(ruta);
@@ -74,7 +76,12 @@ public class MapaCargado extends Mapa {
                     cuadrosCatalogo[i] = Tile.DERECHAL;
                     continue;
                 case 0xff2c1441:
-                    cuadrosCatalogo[i] = Tile.AGUA;
+                    if(cont % 200 > 100){
+                        cuadrosCatalogo[i] = Tile.AGUA;
+                    }else{
+                        cuadrosCatalogo[i]=Tile.AGUA2;
+                    }
+                    
                     continue;
                 case 0xff4ce66c:
                     cuadrosCatalogo[i] = Tile.BOSQUE;
@@ -86,7 +93,12 @@ public class MapaCargado extends Mapa {
                     cuadrosCatalogo[i] = Tile.PIEDRA;
                     continue;
                 case 0xffea644d:
-                    cuadrosCatalogo[i] = Tile.LAVA1;
+                    if(cont % 300 > 150){
+                        cuadrosCatalogo[i] = Tile.LAVA1;
+                    }else{
+                        cuadrosCatalogo[i]=Tile.LAVA2;
+                    }
+                    
                     continue;
                 case 0xff2eb9ec:
                     cuadrosCatalogo[i] = Tile.PIEDRAF;
@@ -98,28 +110,66 @@ public class MapaCargado extends Mapa {
                     cuadrosCatalogo[i] = Tile.PUERTADOWN;
                     continue;
                 case 0xff960e0e:
-                    cuadrosCatalogo[i] = Tile.ESILAVA;
+                    if(cont % 300 > 150){
+                        cuadrosCatalogo[i] = Tile.ESILAVA;
+                    }else{
+                        cuadrosCatalogo[i]=Tile.ESILAVA2;
+                    }
+                    
                     continue;
                 case 0xffd11f1f:
-                    cuadrosCatalogo[i] = Tile.ESDLAVA;
+                    if(cont % 300 > 150){
+                        cuadrosCatalogo[i] = Tile.ESDLAVA;
+                    }else{
+                        cuadrosCatalogo[i]=Tile.ESDLAVA2;
+                    }
                     continue;
                 case 0xffee5555:
-                    cuadrosCatalogo[i] = Tile.EIILAVA;
+                    if(cont % 300 > 150){
+                        cuadrosCatalogo[i] = Tile.EIILAVA;
+                    }else{
+                        cuadrosCatalogo[i]=Tile.EIILAVA2;
+                    }
+                    
                     continue;
                 case 0xffee55d0:
-                    cuadrosCatalogo[i] = Tile.EIDLAVA;
+                    if(cont % 300 > 150){
+                        cuadrosCatalogo[i] = Tile.EIDLAVA;
+                    }else{
+                        cuadrosCatalogo[i]=Tile.EIDLAVA2;
+                    }
+                    
                     continue;
                 case 0xffcb1919:
-                    cuadrosCatalogo[i] = Tile.ARRIBALAVA;
+                    if(cont % 300 > 150){
+                        cuadrosCatalogo[i] = Tile.ARRIBALAVA;
+                    }else{
+                        cuadrosCatalogo[i]=Tile.ARRIBALAVA2;
+                    }
+                    
                     continue;
                 case 0xfff28181:
-                    cuadrosCatalogo[i] = Tile.ABAJOLAVA;
+                    if(cont % 300 > 150){
+                        cuadrosCatalogo[i] = Tile.ABAJOLAVA;
+                    }else{
+                        cuadrosCatalogo[i]=Tile.ABAJOLAVA2;
+                    }
+                    
                     continue;
                 case 0xffaa6363:
-                    cuadrosCatalogo[i] = Tile.IZQUIERDALAVA;
+                    if(cont % 300 > 150){
+                        cuadrosCatalogo[i] = Tile.IZQUIERDALAVA;
+                    }else{
+                        cuadrosCatalogo[i]=Tile.IZQUIERDALAVA2;
+                    }
                     continue;
                 case 0xffa82323:
-                    cuadrosCatalogo[i] = Tile.DERECHALAVA;
+                    if(cont % 300 > 150){
+                        cuadrosCatalogo[i] = Tile.DERECHALAVA;
+                    }else{
+                        cuadrosCatalogo[i]=Tile.DERECHALAVA2;
+                    }
+                    
                     continue;
                     
                     

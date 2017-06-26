@@ -51,6 +51,7 @@ public class Sprite {
 //FIN PERSONAJE----------------------
 // INICIO PLAYA
     public static final Sprite AGUA = new Sprite(32,0,1,HojaSprites.Sprites);
+    public static final Sprite AGUA2 = new Sprite(32,8,2,HojaSprites.Sprites);
     public static final Sprite BOSQUE = new Sprite(32,1,1,HojaSprites.Sprites);
     public static final Sprite ARENA = new Sprite(32,2,1,HojaSprites.Sprites);
     public static final Sprite PIEDRA = new Sprite(32,5,1,HojaSprites.Sprites);
@@ -118,6 +119,15 @@ public class Sprite {
     public static final Sprite ABAJOLAVA = new Sprite(32,5,2,HojaSprites.Sprites);
     public static final Sprite IZQUIERDALAVA = new Sprite(32,6,2,HojaSprites.Sprites);
     public static final Sprite DERECHALAVA = new Sprite(32,7,2,HojaSprites.Sprites);
+    
+    public static final Sprite ESILAVA2 = new Sprite(32,0,3,HojaSprites.Sprites);
+    public static final Sprite ESDLAVA2 = new Sprite(32,1,3,HojaSprites.Sprites);
+    public static final Sprite EIILAVA2 = new Sprite(32,2,3,HojaSprites.Sprites);
+    public static final Sprite EIDLAVA2 = new Sprite(32,3,3,HojaSprites.Sprites);
+    public static final Sprite ARRIBALAVA2 = new Sprite(32,4,3,HojaSprites.Sprites);
+    public static final Sprite ABAJOLAVA2 = new Sprite(32,5,3,HojaSprites.Sprites);
+    public static final Sprite IZQUIERDALAVA2 = new Sprite(32,6,3,HojaSprites.Sprites);
+    public static final Sprite DERECHALAVA2 = new Sprite(32,7,3,HojaSprites.Sprites);
 
     //FIN LADRILLOS LAVA
     //Fin Portal
@@ -201,6 +211,24 @@ public class Sprite {
     
     
     //FIN SPRITES MAGO
+    
+    //INICIO MAGO T
+    public static final Sprite MGTINICIO0 = new Sprite(48,1,0,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTINICIO1 = new Sprite(48,0,0,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTINICIO_1 = new Sprite(48,2,0,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTIZ0 = new Sprite(48,1,1,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTIZ1 = new Sprite(48,0,1,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTIZ_1 = new Sprite(48,2,1,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTDE0 = new Sprite(48,1,2,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTDE1 = new Sprite(48,0,2,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTDE_1 = new Sprite(48,2,2,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTABAJO0 = new Sprite(48,1,3,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTABAJO1 = new Sprite(48,0,3,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTABAJO_1 = new Sprite(48,2,3,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTDIE = new Sprite(48,0,4,HojaSprites.HojaMagoTSprites);
+    public static final Sprite MGTSING = new Sprite(48,1,4,HojaSprites.HojaMagoTSprites);
+    // FIN MAGO T
+    
     //INICIO SPRITES KILLMAR
     public static final Sprite KMDOWN0 = new Sprite(48,1,0,HojaSprites.HojaKillMarBlueSprites);
     public static final Sprite KMDOWN_1 = new Sprite(48,0,0,HojaSprites.HojaKillMarBlueSprites);
