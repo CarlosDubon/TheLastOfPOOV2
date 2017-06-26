@@ -8,6 +8,7 @@ package graficos;
 import entes.criaturas.Baty;
 import entes.criaturas.BatyRed;
 import entes.criaturas.Disparo;
+import entes.criaturas.DisparoZ;
 import entes.criaturas.FinalBoss;
 import entes.criaturas.Heart;
 import mapa.tile.Tile;
@@ -355,6 +356,28 @@ public class Pantalla {
             }
         }
     }
+    public void mostrarDisparoZ(int compensacionX, int compensacionY, DisparoZ disparo){
+        compensacionX -=diferenciaX;
+        compensacionY -= diferenciaY;
+        for(int y =0 ; y < disparo.getSprite().getLado();y++){ 
+            int posicionY = y + compensacionY;
+            for(int x = 0; x<disparo.getSprite().getLado(); x++){
+                int posicionX = x + compensacionX;
+                if(posicionX < -disparo.getSprite().getLado() || posicionX >= ancho || posicionY < 0 || posicionY >= alto){
+                    break;
+                }
+                if(posicionX < 0){
+                    posicionX = 0;
+                }
+                int colorPixelDisparo = disparo.getSprite().pixeles[x+y*disparo.getSprite().getLado()];
+                if(colorPixelDisparo !=0xffc65067 ){
+                    pixeles [posicionX + posicionY * ancho] = disparo.getSprite().pixeles[x + y * disparo.getSprite().getLado()];
+                }
+            }
+        }
+    }
+    
+    
 
     public void resetDiferencia(final int diferenciaX, final int diferenciaY) {
         this.diferenciaX = diferenciaX;

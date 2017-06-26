@@ -396,6 +396,9 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 heart3_4.mostrar(pantalla);
                 heart3_5.mostrar(pantalla);
                 heart3_6.mostrar(pantalla);
+                for(int i =0;i<Zh0rThiz.arrayDisparosZ.size();i++){
+                Zh0rThiz.arrayDisparosZ.get(i).mostrar(pantalla);
+            }
                 
                 break;
         }
