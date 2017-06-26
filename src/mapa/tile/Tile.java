@@ -15,6 +15,7 @@ import graficos.Sprite;
 public  class Tile {
     private boolean solido;
     
+
     //Coleccion de Tiles
     public static final Tile LADRILLO = new Tile(Sprite.LADRILLO);
     public static final Tile VACIO = new Tile(Sprite.VACIO,true);
