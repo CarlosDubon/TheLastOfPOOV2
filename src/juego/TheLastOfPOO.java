@@ -374,7 +374,6 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 
                 break;
             case 3:
-                
                 mago1.mostrar(pantalla);
                 magoT1.mostrar(pantalla);
                 magoT2.mostrar(pantalla);
@@ -398,7 +397,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 heart3_6.mostrar(pantalla);
                 for(int i =0;i<Zh0rThiz.arrayDisparosZ.size();i++){
                 Zh0rThiz.arrayDisparosZ.get(i).mostrar(pantalla);
-            }
+                }
+                
                 
                 break;
         }
@@ -454,6 +454,14 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             }
             
             
+        }
+        if(Estado.estado ==3){
+
+            g.setColor(Color.GREEN);
+            g.fillRect(150,575, Zh0rThiz.getHP(), 15);
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Consolas",Font.ITALIC,20));
+            g.drawString("ZhOrThiz", ANCHO/2 - 40, 575-10);
         }
         
         if(Estado.estado == 0){

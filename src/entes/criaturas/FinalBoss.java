@@ -167,4 +167,7 @@ public class FinalBoss extends Criatura{
     public Rectangle getBounds(){
         return new Rectangle(x,y,70,70);
     }
+    public int getHP(){
+        return HP;
+    }
 }

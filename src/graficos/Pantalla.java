@@ -370,7 +370,7 @@ public class Pantalla {
                     posicionX = 0;
                 }
                 int colorPixelDisparo = disparo.getSprite().pixeles[x+y*disparo.getSprite().getLado()];
-                if(colorPixelDisparo !=0xff060808 ){
+                if(colorPixelDisparo !=0xff9fffc3 ){
                     pixeles [posicionX + posicionY * ancho] = disparo.getSprite().pixeles[x + y * disparo.getSprite().getLado()];
                 }
             }
