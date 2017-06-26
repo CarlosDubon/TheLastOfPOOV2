@@ -33,6 +33,21 @@ public class Baty extends Criatura {
         this.direccion = 'o';
     
     }
+    public Baty(int x, int y, Sprite sprite, Jugador jugador,Mapa mapa,char direccion){
+        this.x = x;
+        this.y = y;
+        this.sprite = sprite;
+        this.jugador = jugador;
+        this.mapa = mapa;
+        this.HP = 40;
+        this.Velocidad = 2;
+        this.originalX = x;
+        this.originalY = y;
+        this.isKiller = false;
+        this.ATK = 4;
+        this.direccion = direccion;
+    
+    }
     @Override
     public void actualizar(){
         desplazamientoX =0;

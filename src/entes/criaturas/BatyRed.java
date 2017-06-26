@@ -32,6 +32,21 @@ public class BatyRed extends Criatura {
         this.direccion = 'o';
     
     }
+    public BatyRed(int x, int y, Sprite sprite, Jugador jugador,Mapa mapa,char direccion){
+        this.x = x;
+        this.y = y;
+        this.sprite = sprite;
+        this.jugador = jugador;
+        this.mapa = mapa;
+        this.HP = 45;
+        this.Velocidad = 2;
+        this.originalX = x;
+        this.originalY = y;
+        this.isKiller = false;
+        this.ATK = 5;
+        this.direccion = direccion;
+    
+    }
     @Override
     public void actualizar(){
         desplazamientoX =0;
