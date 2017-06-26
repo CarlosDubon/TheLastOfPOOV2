@@ -261,6 +261,22 @@ public class Sprite {
     public static final Sprite TRDIE = new Sprite(48,0,4,HojaSprites.HojaTauroSprites);
     
     // FIN SPRITES TAOURO
+        //INICIO SPRITES TAURO
+    public static final Sprite FBDOWN0 = new Sprite(70,1,0,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBDOWN_1 = new Sprite(70,0,0,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBDOWN1 = new Sprite(70,2,0,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBIZ1 = new Sprite(70,0,1,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBIZ0 = new Sprite(70,1,1,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBIZ_1 = new Sprite(70,2,1,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBDE1 = new Sprite(70,1,2,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBDE0 = new Sprite(70,0,2,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBDE_1 = new Sprite(70,2,2,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBUP1 = new Sprite(70,1,3,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBUP0 = new Sprite(70,0,3,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBUP_1 = new Sprite(70,2,3,HojaSprites.HijaFinalBossSprites);
+    public static final Sprite FBDIE = new Sprite(70,0,4,HojaSprites.HijaFinalBossSprites);
+    
+    // FIN SPRITES TAOURO
     
 //Fin de la coleccion
     

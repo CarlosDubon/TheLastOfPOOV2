@@ -8,6 +8,7 @@ package graficos;
 import entes.criaturas.Baty;
 import entes.criaturas.BatyRed;
 import entes.criaturas.Disparo;
+import entes.criaturas.FinalBoss;
 import entes.criaturas.Heart;
 import mapa.tile.Tile;
 import entes.criaturas.Jugador;
@@ -330,6 +331,26 @@ public class Pantalla {
                 int colorPixelTaouro = taouro.getSprite().pixeles[x+y*taouro.getSprite().getLado()];
                 if(colorPixelTaouro !=0xffffffff ){
                     pixeles [posicionX + posicionY * ancho] = taouro.getSprite().pixeles[x + y * taouro.getSprite().getLado()];
+                }
+            }
+        }
+    }
+    public void mostrarFB(int compensacionX, int compensacionY, FinalBoss FB){
+        compensacionX -=diferenciaX;
+        compensacionY -= diferenciaY;
+        for(int y =0 ; y < FB.getSprite().getLado();y++){ 
+            int posicionY = y + compensacionY;
+            for(int x = 0; x<FB.getSprite().getLado(); x++){
+                int posicionX = x + compensacionX;
+                if(posicionX < -FB.getSprite().getLado() || posicionX >= ancho || posicionY < 0 || posicionY >= alto){
+                    break;
+                }
+                if(posicionX < 0){
+                    posicionX = 0;
+                }
+                int colorPixelTaouro = FB.getSprite().pixeles[x+y*FB.getSprite().getLado()];
+                if(colorPixelTaouro !=0xffc65067){
+                    pixeles [posicionX + posicionY * ancho] = FB.getSprite().pixeles[x + y * FB.getSprite().getLado()];
                 }
             }
         }
