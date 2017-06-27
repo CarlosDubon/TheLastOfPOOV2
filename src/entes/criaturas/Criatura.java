@@ -5,6 +5,7 @@
  */
 package entes.criaturas;
 
+
 import entes.Ente;
 import graficos.Pantalla;
 import graficos.Sprite;
@@ -27,7 +28,7 @@ public class Criatura extends Ente{
     protected int originalX;
     protected int originalY;
     protected int ATK;
-
+    
     
     @Override
     public void actualizar(){

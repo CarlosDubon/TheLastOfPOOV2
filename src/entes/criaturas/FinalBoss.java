@@ -5,6 +5,7 @@
  */
 package entes.criaturas;
 
+
 import graficos.Pantalla;
 import graficos.Sprite;
 import java.awt.Rectangle;
@@ -116,7 +117,7 @@ public class FinalBoss extends Criatura{
             
             if(jugador.getBounds().intersects(getBounds())){
                 jugador.setHP(jugador.getHP()-ATK);
-            
+                
             }
             for(int i = 0;i<jugador.arrayDisparos.size();i++ ){
                 if(jugador.arrayDisparos.get(i).getBounds().intersects(getBounds()) && direccion== DireccionAux){

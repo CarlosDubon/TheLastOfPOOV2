@@ -5,6 +5,7 @@
  */
 package entes.criaturas;
 
+
 import control.Teclado;
 import graficos.Pantalla;
 import graficos.Sprite;
@@ -154,6 +155,9 @@ public class Jugador extends Criatura{
         arrayDisparos.add(disparo);
         thread = new Thread(new ThreadDisparo(arrayDisparos.get(arrayDisparos.size()-1)));
         thread.start();
+ 
+
+        
 
          
     }

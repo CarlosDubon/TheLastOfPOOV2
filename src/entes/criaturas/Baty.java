@@ -5,6 +5,7 @@
  */
 package entes.criaturas;
 
+
 import graficos.Pantalla;
 import graficos.Sprite;
 import java.awt.Rectangle;

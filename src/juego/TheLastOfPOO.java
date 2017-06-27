@@ -7,6 +7,7 @@ package juego;
 
 import control.Estado;
 import control.Puntaje;
+
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
@@ -50,6 +51,7 @@ import entes.criaturas.Skeletor;
 import entes.criaturas.Tauro;
 import entes.criaturas.Trofeo;
 import java.awt.Rectangle;
+import javax.sound.sampled.Clip;
 import threads.Tiempo;
 
 
@@ -150,6 +152,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Trofeo trofeo;
     public static boolean Win;
     
+   
     private Teclado teclado;
     private String Nick=null; // A la hora de dar start resetear el nick
     private static Pantalla pantalla;
@@ -180,7 +183,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         setPreferredSize(new Dimension(ANCHO, ALTO));
         estado = new Estado();
         
-        Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
+        //Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
         
        
@@ -203,7 +206,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        mapa3_Traped = new MapaCargado("/texturas/mapa3_Trap.png");
        
        Restock();
-       
+
        //jugador.setStaticX(400);
        //jugador.setStaticY(280);
        
@@ -645,6 +648,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                         ControlTiempo=true;
                         THilo.start();
                         Estado.estado = 1;
+
                         break;
                     case 378:
                         
@@ -706,8 +710,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        //Mapa1
        
        jugador = new Jugador(teclado,367,350,Sprite.INICIAL0,mapa);
-       jugador.setStaticY(1130);//TEST PARA MAPA 3
-       jugador.setStaticX(1329);//TEST PARA MAPA 3
+       //jugador.setStaticY(1130);//TEST PARA MAPA 3
+       //jugador.setStaticX(1329);//TEST PARA MAPA 3
        plasta = new Plasta(teclado,1200,500,Sprite.PLASTAIN0,jugador,mapa);
        key1=new Key(450, 1270, Sprite.KEY1, jugador, mapa1);
        heart1= new Heart(428, 788, Sprite.HEART1, jugador, mapa);
@@ -781,4 +785,6 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         
     }
     
+
+
 }

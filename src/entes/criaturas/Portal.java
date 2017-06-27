@@ -9,6 +9,7 @@ import control.Estado;
 import graficos.Pantalla;
 import graficos.Sprite;
 import java.awt.Rectangle;
+import juego.TheLastOfPOO;
 
 import mapa.Mapa;
 
@@ -57,6 +58,7 @@ public class Portal extends Criatura {
                     jugador.setStaticX(400);
                     jugador.setStaticY(300);
                     Estado.estado=2;
+
                     x = 1245;
                     y = 960;
                     break;
@@ -64,6 +66,7 @@ public class Portal extends Criatura {
                     jugador.setStaticX(400);
                     jugador.setStaticY(265);
                     Estado.estado=3;
+
                     x = 0;
                     y = 0;
                     break;
