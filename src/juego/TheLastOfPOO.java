@@ -48,6 +48,7 @@ import entes.criaturas.Mago;
 import entes.criaturas.MagoT;
 import entes.criaturas.Skeletor;
 import entes.criaturas.Tauro;
+import entes.criaturas.Trofeo;
 import java.awt.Rectangle;
 import threads.Tiempo;
 
@@ -146,6 +147,9 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Heart heart3_5;
     private static Heart heart3_6;
     
+    private static Trofeo trofeo;
+    public static boolean Win;
+    
     private Teclado teclado;
     private String Nick=null; // A la hora de dar start resetear el nick
     private static Pantalla pantalla;
@@ -169,6 +173,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static BufferedImage PantallaScore;
 
     private static BufferedImage Cursor;
+    
+    private static int PuntajeT=750;
     
     private TheLastOfPOO(){
         setPreferredSize(new Dimension(ANCHO, ALTO));
@@ -302,7 +308,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 break;
             case 3:
                 
-                if (!LastTrap && jugador.getBounds().intersects(new Rectangle(1430, 800, 7*32, 32))){
+                if (Zh0rThiz.getHP()>0 && !LastTrap && jugador.getBounds().intersects(new Rectangle(1430, 800, 7*32, 32))){
                     LastTrap=true;
                 }
                 
@@ -311,6 +317,12 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                     Zh0rThiz.actualizar();
                 }else{
                     mapa=mapa3;
+                }
+                
+                if(Zh0rThiz.getHP() <=0){
+                    trofeo.actualizar();
+                    Zh0rThiz.actualizar();
+                    LastTrap=false;
                 }
                 
                 jugador.setMapa(mapa);
@@ -391,7 +403,9 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 break;
             case 3:
                 
-                
+                if(Zh0rThiz.getHP() <=0){
+                    trofeo.mostrar(pantalla);
+                }
                 
                 mago1.mostrar(pantalla);
                 magoT1.mostrar(pantalla);
@@ -415,7 +429,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 heart3_5.mostrar(pantalla);
                 heart3_6.mostrar(pantalla);
                 for(int i =0;i<Zh0rThiz.arrayDisparosZ.size();i++){
-                Zh0rThiz.arrayDisparosZ.get(i).mostrar(pantalla);
+                    Zh0rThiz.arrayDisparosZ.get(i).mostrar(pantalla);
                 }
                 
                 
@@ -461,6 +475,14 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             g.setColor(Color.WHITE);
             g.drawString("GAME OVER", ANCHO/2-50,ALTO/2);
             g.drawString("Press Enter to continue...", ANCHO/2-120,ALTO/2+40);
+            PuntajeT=750-segundos;
+            if(PuntajeT<0){
+                PuntajeT=0;
+            }
+            
+            jugador.setPuntaje(PuntajeT);
+            jugador.setPuntaje(jugador.getHP());
+            
             if(Nick == null && !Active){
                 Active=true;
                 Nick=JOptionPane.showInputDialog(this, "Nickname: ", "GAME OVER", JOptionPane.QUESTION_MESSAGE);
@@ -474,6 +496,30 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             
             
         }
+        
+        if(Estado.estado == 10){
+            THilo.stop();
+            Font fontGameOver = new Font("Agency FB",Font.BOLD,35); 
+            g.setFont(fontGameOver);
+            g.setColor(Color.BLACK);
+            g.fillRect(0,0, ANCHO, ALTO);
+            g.setColor(Color.WHITE);
+            g.drawString("CONGRATULATIONS", ANCHO/2-100,ALTO/2-40);
+            g.drawString("YOU WIN", ANCHO/2-50,ALTO/2);
+            g.drawString("Press Enter to continue...", ANCHO/2-150,ALTO/2+40);
+            
+            
+            
+            if(Nick == null && !Active){
+                Active=true;
+                Nick=JOptionPane.showInputDialog(this, "Nickname: ", "YOU ARE THE WINNER", JOptionPane.QUESTION_MESSAGE);
+                if(Nick.isEmpty()){
+                    Nick = "No nick";
+                }
+                BaseDeDatos.insertJugador(Nick, jugador.getPuntaje());
+            }
+        }
+        
         if(Estado.estado ==3 && LastTrap){
 
             g.setColor(Color.GREEN);
@@ -619,6 +665,10 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             else if (Estado.estado == 4){
                 Estado.estado=0;
             }
+            else if(Estado.estado ==10){
+                Restock();
+                Estado.estado=0;
+            }
         }
 
     }
@@ -641,6 +691,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        Active=false;
        LastTrap=false;
        BlockedMapa1=false;
+       Win=false;
         
        Nick=null;
        
@@ -691,6 +742,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        
        
        //Mapa 3
+       trofeo= new Trofeo(1145, 1136, Sprite.TF1, jugador, mapa);
        mago1=  new Mago(919,260,Sprite.MGRINICIO0,jugador,mapa);
        mago3=  new Mago(1945,1220,Sprite.MGRINICIO0,jugador,mapa);
        mago2 = new Mago(410,1296,Sprite.MGRINICIO0,jugador,mapa);

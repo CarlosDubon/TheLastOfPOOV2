@@ -21,6 +21,7 @@ import entes.criaturas.Plasta;
 import entes.criaturas.Portal;
 import entes.criaturas.Skeletor;
 import entes.criaturas.Tauro;
+import entes.criaturas.Trofeo;
 
 /**
  *
@@ -145,6 +146,27 @@ public class Pantalla {
                 }
                 int colorPixelHeart = heart.getSprite().pixeles[x+y*heart.getSprite().getLado()];
                 if(colorPixelHeart !=0xff00ff3c ){
+                    pixeles [posicionX + posicionY * ancho] = heart.getSprite().pixeles[x + y * heart.getSprite().getLado()];
+                }
+            }
+        }
+    }
+    
+    public void mostrarTrofeo(int compensacionX,int compensacionY,Trofeo heart){
+        compensacionX -=diferenciaX;
+        compensacionY -= diferenciaY;
+        for(int y =0 ; y < heart.getSprite().getLado();y++){ 
+            int posicionY = y + compensacionY;
+            for(int x = 0; x<heart.getSprite().getLado(); x++){
+                int posicionX = x + compensacionX;
+                if(posicionX < -heart.getSprite().getLado() || posicionX >= ancho || posicionY < 0 || posicionY >= alto){
+                    break;
+                }
+                if(posicionX < 0){
+                    posicionX = 0;
+                }
+                int colorPixelHeart = heart.getSprite().pixeles[x+y*heart.getSprite().getLado()];
+                if(colorPixelHeart !=0xff00ff0c){
                     pixeles [posicionX + posicionY * ancho] = heart.getSprite().pixeles[x + y * heart.getSprite().getLado()];
                 }
             }

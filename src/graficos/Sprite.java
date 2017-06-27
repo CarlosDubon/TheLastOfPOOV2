@@ -101,6 +101,14 @@ public class Sprite {
     
     //FIN CORAZON
     
+    //Trofeo
+    
+    public static final Sprite TF1 = new Sprite(32,0,0,HojaSprites.HojaTrofeoSprite);
+    public static final Sprite TF2 = new Sprite(32,1,0,HojaSprites.HojaTrofeoSprite);
+    public static final Sprite TFNULL = new Sprite(32,2,0,HojaSprites.HojaTrofeoSprite);
+    
+    //Trofeo fin
+    
     //INICIO SPRITE DISPAROS
     public static final Sprite DISPARO1 = new Sprite(16,0,0,HojaSprites.HojaDisparoSprites);
     public static final Sprite DISPARO2 = new Sprite(16,1,0,HojaSprites.HojaDisparoSprites);
