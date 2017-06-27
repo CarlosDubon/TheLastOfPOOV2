@@ -27,7 +27,44 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
          
             
             switch(disparo.getDireccion()){
-                
+                case 'n':
+                    disparo.setStaticY(disparo.getOriginalY()+15);
+                    disparo.setSprite(Sprite.DZ1);
+                     disparo.setY(-disparo.getVelocidad());            
+                    if((disparo.getY() > disparo.getOriginalY()+500)/* || 
+                            disparo.isCollision(disparo.getDesplazamientoX(), disparo.getDesplazamientoY(),DisparoZ.MarIzq,
+                            DisparoZ.MarDer,DisparoZ.MarSup,DisparoZ.MarInf)*/){
+                       
+                        //disparo.setSprite(Sprite.DISPARO2);
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            System.out.println(ex);
+                        }
+                        disparo.FB.arrayDisparosZ.remove(disparo.FB.arrayDisparosZ.indexOf(disparo));
+                        this.Alive=false;
+                        
+                    }
+                    break;
+                case 's':
+                    disparo.setStaticY(disparo.getOriginalY()+15);
+                    disparo.setSprite(Sprite.DZ2);
+                     disparo.setY(disparo.getVelocidad());            
+                     if((disparo.getY() < disparo.getOriginalY()-500) /*||
+                             disparo.isCollision(disparo.getDesplazamientoX(), disparo.getDesplazamientoY(),DisparoZ.MarIzq,
+                             DisparoZ.MarDer,DisparoZ.MarSup,DisparoZ.MarInf)*/){
+                        
+                        //disparo.setSprite(Sprite.DISPARO2);
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            System.out.println(ex);
+                        }
+                        disparo.FB.arrayDisparosZ.remove(disparo.FB.arrayDisparosZ.indexOf(disparo));
+                        this.Alive=false;
+
+                    }
+                    break;
                 case 'e':
                     disparo.setStaticY(disparo.getOriginalY()+15);
                     disparo.setSprite(Sprite.DZ1);

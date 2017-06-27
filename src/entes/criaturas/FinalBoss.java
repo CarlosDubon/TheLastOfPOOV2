@@ -71,10 +71,21 @@ public class FinalBoss extends Criatura{
             if(x > jugador.getX()){
                 direccion = 'o';
                 DireccionAux= 'e';
-            }else if(x < jugador.getX()){
+            }
+            if(x < jugador.getX()){
                 direccion = 'e';
                 DireccionAux= 'o';
             }
+            
+            if(jugador.getX() > x && jugador.getX() < x+70 && y < jugador.getY() ){
+                direccion = 's';
+                DireccionAux='n';
+            }
+            if(jugador.getX() > x && jugador.getX() < x+70 && y > jugador.getY() ){
+                direccion = 'n';
+                DireccionAux='s';
+            }
+            
             if(count < 120){
                 count++;
             }else{
