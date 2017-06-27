@@ -30,7 +30,7 @@ public class FinalBoss extends Criatura{
         this.sprite = sprite;
         this.jugador = jugador;
         this.mapa = mapa;
-        this.HP = 5;
+        this.HP = 500;
         this.Velocidad = 5;
         this.originalX = x;
         this.originalY = y;
