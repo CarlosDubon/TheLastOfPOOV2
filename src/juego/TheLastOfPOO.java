@@ -478,13 +478,13 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             g.setColor(Color.WHITE);
             g.drawString("GAME OVER", ANCHO/2-50,ALTO/2);
             g.drawString("Press Enter to continue...", ANCHO/2-120,ALTO/2+40);
-            PuntajeT=750-segundos;
+            PuntajeT=jugador.getPuntaje()-segundos;
             if(PuntajeT<0){
                 PuntajeT=0;
             }
             
             jugador.setPuntaje(PuntajeT);
-            jugador.setPuntaje(jugador.getHP());
+            //jugador.setPuntaje(jugador.getHP());
             
             if(Nick == null && !Active){
                 Active=true;
@@ -511,7 +511,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             g.drawString("YOU WIN", ANCHO/2-50,ALTO/2);
             g.drawString("Press Enter to continue...", ANCHO/2-150,ALTO/2+40);
             
-            
+            jugador.setPuntaje(jugador.getPuntaje()+jugador.getHP());
             
             if(Nick == null && !Active){
                 Active=true;
