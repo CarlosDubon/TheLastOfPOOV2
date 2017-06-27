@@ -30,7 +30,7 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
                 case 's':
                     //disparo.setStaticY(disparo.getOriginalY()+15);
                     disparo.setSprite(Sprite.DZ3);
-                     disparo.setY(-disparo.getVelocidad());            
+                     disparo.setY(disparo.getVelocidad());            
                     if((disparo.getY() > disparo.getOriginalY()+500)/* || 
                             disparo.isCollision(disparo.getDesplazamientoX(), disparo.getDesplazamientoY(),DisparoZ.MarIzq,
                             DisparoZ.MarDer,DisparoZ.MarSup,DisparoZ.MarInf)*/){
@@ -49,7 +49,7 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
                 case 'n':
                     //disparo.setStaticY(disparo.getOriginalY()+15);
                     disparo.setSprite(Sprite.DZ4);
-                     disparo.setY(disparo.getVelocidad());            
+                     disparo.setY(-disparo.getVelocidad());            
                      if((disparo.getY() < disparo.getOriginalY()-500) /*||
                              disparo.isCollision(disparo.getDesplazamientoX(), disparo.getDesplazamientoY(),DisparoZ.MarIzq,
                              DisparoZ.MarDer,DisparoZ.MarSup,DisparoZ.MarInf)*/){
