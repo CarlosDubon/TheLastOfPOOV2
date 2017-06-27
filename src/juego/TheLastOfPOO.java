@@ -174,6 +174,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     
     private static BufferedImage Menu;
     private static BufferedImage PantallaScore;
+    private static BufferedImage HelpScreen;
 
     private static BufferedImage Cursor;
     
@@ -190,6 +191,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         try {
             Menu = ImageIO.read(new File(".\\.\\recursos\\texturas\\GameMenu.png"));
             PantallaScore= ImageIO.read(new File(".\\.\\recursos\\texturas\\GameScore.png"));
+            HelpScreen = ImageIO.read(new File(".\\.\\recursos\\texturas\\HelpScreen.png"));
             Cursor= ImageIO.read(new File(".\\.\\recursos\\texturas\\Cursor.png"));
         } catch (IOException ex) {
             System.out.println(ex);
@@ -454,8 +456,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         g.setColor(new Color(0x2c3e50));
         g.fillRect(0,0, ANCHO, 50);
         g.setColor(Color.WHITE);
-        g.drawString("X: "+jugador.getX(),600,20);
-        g.drawString("Y: "+jugador.getY(),600,30);
+        //g.drawString("X: "+jugador.getX(),600,20);
+        //g.drawString("Y: "+jugador.getY(),600,30);
         g.drawString("HP: ",10,20);
         g.drawString("EP: ",10, 30);
         g.drawString("FR: ",10, 40);
@@ -556,6 +558,9 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             }
                
         }
+        if(Estado.estado==5){
+            g.drawImage(HelpScreen, 0, 0, this);
+        }
         g.dispose();
         estrategia.show();
         fps++;
@@ -628,45 +633,48 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             
         }
         if(e.getKeyCode() == KeyEvent.VK_DOWN){
-            if(Estado.estado == 0 && CursorY <=378){
+            if(Estado.estado == 0 && CursorY <=478){
                 CursorY += 100;
             }else
-                CursorY = 278;
+                CursorY = 238;
         }
         
         if(e.getKeyCode() == KeyEvent.VK_UP){
-            if(Estado.estado == 0 && CursorY > 278){
+            if(Estado.estado == 0 && CursorY > 238){
                 CursorY -= 100;
             }else
-                CursorY = 478;
+                CursorY = 538;
         }
         
         if(e.getKeyCode()==KeyEvent.VK_ENTER){
             if(Estado.estado == 0){
                 switch (CursorY){
-                    case 278:
+                    case 238:
                         ControlTiempo=true;
                         THilo.start();
                         Estado.estado = 1;
 
                         break;
-                    case 378:
+                    case 338:
                         
                         Top10=BaseDeDatos.TopScores();
                         
                         Estado.estado=4;
                         break;
-                    case 478:
+                    case 438:
+                        Estado.estado=5;
+                        break;
+                    case 538:
                         System.exit(0);
                         break;
                 }
-                CursorY=278;
+                CursorY=238;
             }
             else if(Estado.estado !=0 && jugador.getHP() <=0 && Estado.estado !=4){
                 Restock();
                 Estado.estado=0;
             }
-            else if (Estado.estado == 4){
+            else if (Estado.estado == 4 || Estado.estado == 5){
                 Estado.estado=0;
             }
             else if(Estado.estado ==10){
@@ -690,7 +698,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        addKeyListener(teclado);
         
        CursorX = 200;
-       CursorY = 278;
+       CursorY = 238;
         
        Active=false;
        LastTrap=false;

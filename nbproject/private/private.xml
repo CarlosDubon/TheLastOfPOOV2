@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/criaturas/Heart.java</file>
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/criaturas/Mago.java</file>
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/graficos/Pantalla.java</file>
@@ -31,6 +32,18 @@
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/criaturas/Criatura.java</file>
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/mapa/MapaCargado.java</file>
             <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/criaturas/MagoT.java</file>
+=======
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/graficos/Sprite.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/Jugador.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/threads/ThreadDisparoZ.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/Ente.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/graficos/HojaSprites.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/juego/TheLastOfPOO.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/DisparoZ.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/database/DBQuery.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/graficos/Pantalla.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/FinalBoss.java</file>
+>>>>>>> 21552d6ea59f86c2128db2cb4f40c85cdf5cde1c
         </group>
     </open-files>
 </project-private>
