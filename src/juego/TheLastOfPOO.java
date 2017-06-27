@@ -48,6 +48,7 @@ import entes.criaturas.Mago;
 import entes.criaturas.MagoT;
 import entes.criaturas.Skeletor;
 import entes.criaturas.Tauro;
+import java.awt.Rectangle;
 import threads.Tiempo;
 
 
@@ -81,12 +82,15 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Mapa mapa3;
     
     private static boolean Active= false;
+    private static boolean LastTrap = false;
     
     private static Mapa mapa1Keyed;
     private static Mapa mapa1Blocked;
     private static boolean BlockedMapa1= false;
     private static Mapa mapa2Keyed_1;
     private static Mapa mapa2Keyed_2;
+    private static Mapa mapa3_Traped;
+    
     
     private static Jugador jugador;
     private static Plasta plasta;
@@ -190,6 +194,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        mapa2Keyed_1 = new MapaCargado("/texturas/mapa2_1.png");
        mapa2Keyed_2 = new MapaCargado("/texturas/mapa2_2.png");
        mapa3 = new MapaCargado("/texturas/mapa3.png");
+       mapa3_Traped = new MapaCargado("/texturas/mapa3_Trap.png");
        
        Restock();
        
@@ -296,7 +301,18 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 
                 break;
             case 3:
-                mapa=mapa3;
+                
+                if (!LastTrap && jugador.getBounds().intersects(new Rectangle(1430, 800, 7*32, 32))){
+                    LastTrap=true;
+                }
+                
+                if(LastTrap){
+                    mapa=mapa3_Traped;
+                    Zh0rThiz.actualizar();
+                }else{
+                    mapa=mapa3;
+                }
+                
                 jugador.setMapa(mapa);
                 mago1.actualizar();
                 magoT1.actualizar();
@@ -311,7 +327,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 catrina.actualizar();
                 catrina2.actualizar();
                 batyRed2.actualizar();
-                Zh0rThiz.actualizar();
+                
                 heart3_1.actualizar();
                 heart3_2.actualizar();
                 heart3_3.actualizar();
@@ -374,6 +390,9 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 
                 break;
             case 3:
+                
+                
+                
                 mago1.mostrar(pantalla);
                 magoT1.mostrar(pantalla);
                 magoT2.mostrar(pantalla);
@@ -455,7 +474,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             
             
         }
-        if(Estado.estado ==3){
+        if(Estado.estado ==3 && LastTrap){
 
             g.setColor(Color.GREEN);
             g.fillRect(150,575, Zh0rThiz.getHP(), 15);
@@ -620,6 +639,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        CursorY = 278;
         
        Active=false;
+       LastTrap=false;
        BlockedMapa1=false;
         
        Nick=null;
