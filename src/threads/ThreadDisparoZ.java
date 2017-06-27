@@ -28,7 +28,7 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
             
             switch(disparo.getDireccion()){
                 case 'n':
-                    disparo.setStaticY(disparo.getOriginalY()+15);
+                    //disparo.setStaticY(disparo.getOriginalY()+15);
                     disparo.setSprite(Sprite.DZ1);
                      disparo.setY(-disparo.getVelocidad());            
                     if((disparo.getY() > disparo.getOriginalY()+500)/* || 
@@ -47,7 +47,7 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
                     }
                     break;
                 case 's':
-                    disparo.setStaticY(disparo.getOriginalY()+15);
+                    //disparo.setStaticY(disparo.getOriginalY()+15);
                     disparo.setSprite(Sprite.DZ2);
                      disparo.setY(disparo.getVelocidad());            
                      if((disparo.getY() < disparo.getOriginalY()-500) /*||
