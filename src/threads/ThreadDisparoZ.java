@@ -27,15 +27,15 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
          
             
             switch(disparo.getDireccion()){
-                case 'n':
+                case 's':
                     //disparo.setStaticY(disparo.getOriginalY()+15);
-                    disparo.setSprite(Sprite.DZ1);
+                    disparo.setSprite(Sprite.DZ3);
                      disparo.setY(-disparo.getVelocidad());            
                     if((disparo.getY() > disparo.getOriginalY()+500)/* || 
                             disparo.isCollision(disparo.getDesplazamientoX(), disparo.getDesplazamientoY(),DisparoZ.MarIzq,
                             DisparoZ.MarDer,DisparoZ.MarSup,DisparoZ.MarInf)*/){
                        
-                        //disparo.setSprite(Sprite.DISPARO2);
+                        disparo.setSprite(Sprite.DZ5);
                         try {
                             Thread.sleep(100);
                         } catch (InterruptedException ex) {
@@ -46,15 +46,15 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
                         
                     }
                     break;
-                case 's':
+                case 'n':
                     //disparo.setStaticY(disparo.getOriginalY()+15);
-                    disparo.setSprite(Sprite.DZ2);
+                    disparo.setSprite(Sprite.DZ4);
                      disparo.setY(disparo.getVelocidad());            
                      if((disparo.getY() < disparo.getOriginalY()-500) /*||
                              disparo.isCollision(disparo.getDesplazamientoX(), disparo.getDesplazamientoY(),DisparoZ.MarIzq,
                              DisparoZ.MarDer,DisparoZ.MarSup,DisparoZ.MarInf)*/){
                         
-                        //disparo.setSprite(Sprite.DISPARO2);
+                        disparo.setSprite(Sprite.DZ5);
                         try {
                             Thread.sleep(100);
                         } catch (InterruptedException ex) {
@@ -73,7 +73,7 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
                             disparo.isCollision(disparo.getDesplazamientoX(), disparo.getDesplazamientoY(),DisparoZ.MarIzq,
                             DisparoZ.MarDer,DisparoZ.MarSup,DisparoZ.MarInf)*/){
                        
-                        //disparo.setSprite(Sprite.DISPARO2);
+                        disparo.setSprite(Sprite.DZ5);
                         try {
                             Thread.sleep(100);
                         } catch (InterruptedException ex) {
@@ -92,7 +92,7 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
                              disparo.isCollision(disparo.getDesplazamientoX(), disparo.getDesplazamientoY(),DisparoZ.MarIzq,
                              DisparoZ.MarDer,DisparoZ.MarSup,DisparoZ.MarInf)*/){
                         
-                        //disparo.setSprite(Sprite.DISPARO2);
+                        disparo.setSprite(Sprite.DZ5);
                         try {
                             Thread.sleep(100);
                         } catch (InterruptedException ex) {
