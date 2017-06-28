@@ -153,9 +153,11 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Trofeo trofeo;
     public static boolean Win;
     
-    private  final static Sonido Musica0 = new Sonido("Musica3");
+    private  final static Sonido Musica0 = new Sonido("Musica2");
+    private  final static Sonido MusicaGame = new Sonido("Musica3");
     private  final static Sonido Musica1 = new Sonido("Musica3_final");
-    private  final static Sonido Musica_Win = new Sonido("Musica3_Win");
+    private  final static Sonido Musica_Win = new Sonido("Musica_Win");
+    private  final static Sonido Musica_Loose = new Sonido("Musica_Loose");
     private  static boolean isMusica=false;
    
     private Teclado teclado;
@@ -189,7 +191,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         setPreferredSize(new Dimension(ANCHO, ALTO));
         estado = new Estado();
         
-        Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
+        //Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
         
        
@@ -376,6 +378,12 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         pantalla.limpiar();
         mapa.mostrar(jugador.getX() - pantalla.getAncho()/2+jugador.getSprite().getLado()/2, jugador.getY() - pantalla.getAlto()/2 + jugador.getSprite().getLado()/2, pantalla);
         
+        if(!isMusica && (Estado.estado ==1 ||Estado.estado ==2 ||Estado.estado ==3) && !LastTrap){
+            StopAll();
+            MusicaGame.PlayLoop();
+            isMusica=true;
+        }
+        
         switch (estado.getEstado()){
             case 1:
                 plasta.mostrar(pantalla);
@@ -479,6 +487,12 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         g.fillRect(35, 35,(int)jugador.getFire()*4,5);
         if(jugador.getHP() <= 0){
             THilo.stop();
+            Estado.estado=6;
+            if(isMusica){
+                isMusica = false;
+                StopAll();
+                Musica_Loose.clip.start();
+            }
             Font fontGameOver = new Font("Agency FB",Font.BOLD,35); 
             g.setFont(fontGameOver);
             g.setColor(Color.BLACK);
@@ -510,6 +524,11 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         
         if(Estado.estado == 10){
             THilo.stop();
+            if (!isMusica){
+                StopAll();
+                Musica_Win.clip.start();
+                isMusica=true;
+            }
             Font fontGameOver = new Font("Agency FB",Font.BOLD,35); 
             g.setFont(fontGameOver);
             g.setColor(Color.BLACK);
@@ -533,9 +552,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         
         if(Estado.estado ==3 && LastTrap){
             if (!isMusica){
-                Musica_Win.clip.stop();
-                Musica0.stop();
-                Musica1.stop();
+                StopAll();
                 Musica1.PlayLoop();
                 isMusica=true;
             }
@@ -549,9 +566,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         if(Estado.estado == 0){
             
             if (!isMusica){
-                Musica_Win.clip.stop();
-                Musica0.stop();
-                Musica1.stop();
+                StopAll();
                 Musica0.PlayLoop();
                 isMusica=true;
             }
@@ -561,13 +576,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         }
         
         if (Estado.estado == 4){
-            if (!isMusica){
-                Musica_Win.clip.stop();
-                Musica0.stop();
-                Musica1.stop();
-                Musica_Win.clip.start();
-                isMusica=true;
-            }
+            
             int cont=0;
             g.setColor(Color.WHITE);
             g.setFont(new Font("Agency FB",Font.BOLD,30));
@@ -680,7 +689,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                         ControlTiempo=true;
                         THilo.start();
                         Estado.estado = 1;
-
+                        isMusica=false;
                         break;
                     case 338:
                         
@@ -697,17 +706,19 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 }
                 CursorY=238;
             }
-            else if(Estado.estado !=0 && jugador.getHP() <=0 && Estado.estado !=4){
+            else if(Estado.estado==6){
                 Restock();
-                Estado.estado=0;
                 isMusica=false;
+                Estado.estado=0;
+                
             }
             else if (Estado.estado == 4 || Estado.estado == 5){
                 Estado.estado=0;
-                isMusica=false;
+                
             }
             else if(Estado.estado ==10){
                 Restock();
+                isMusica=false;
                 Estado.estado=0;
             }
         }
@@ -747,8 +758,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        //Mapa1
        
        jugador = new Jugador(teclado,367,350,Sprite.INICIAL0,mapa);
-       jugador.setStaticY(1130);//TEST PARA MAPA 3
-       jugador.setStaticX(1329);//TEST PARA MAPA 3
+       //jugador.setStaticY(1130);//TEST PARA MAPA 3
+       //jugador.setStaticX(1329);//TEST PARA MAPA 3
        plasta = new Plasta(teclado,1200,500,Sprite.PLASTAIN0,jugador,mapa);
        key1=new Key(450, 1270, Sprite.KEY1, jugador, mapa1);
        heart1= new Heart(428, 788, Sprite.HEART1, jugador, mapa);
@@ -822,6 +833,12 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         
     }
     
-
+    public void StopAll(){
+        Musica_Win.clip.stop();
+        Musica0.stop();
+        Musica1.stop();
+        MusicaGame.stop();
+        Musica_Loose.stop();
+    }
 
 }

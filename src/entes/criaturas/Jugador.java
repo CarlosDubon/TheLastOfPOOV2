@@ -6,6 +6,7 @@
 package entes.criaturas;
 
 
+import control.Sonido;
 import control.Teclado;
 import graficos.Pantalla;
 import graficos.Sprite;
@@ -27,6 +28,7 @@ public class Jugador extends Criatura{
     private Thread thread;
     private Pantalla pantalla;
     private int RDC;
+    private static Sonido SDIS;
     private boolean Zreleased= false;
     private int puntaje;
 
@@ -155,11 +157,10 @@ public class Jugador extends Criatura{
         arrayDisparos.add(disparo);
         thread = new Thread(new ThreadDisparo(arrayDisparos.get(arrayDisparos.size()-1)));
         thread.start();
- 
-
         
-
-         
+        SDIS= new Sonido("Disparo");
+        SDIS.clip.start();
+ 
     }
     public void mostrar(Pantalla pantalla){
         pantalla.mostrarJugador(x, y, this);

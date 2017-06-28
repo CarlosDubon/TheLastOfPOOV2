@@ -5,6 +5,7 @@
  */
 package threads;
 
+import control.Sonido;
 import entes.criaturas.Criatura;
 import entes.criaturas.DisparoZ;
 import graficos.Sprite;
@@ -17,12 +18,15 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
     private DisparoZ disparo;
     private boolean Alive=true;
     private int Cont=0;
+    private Sonido SDIS;
     
     public ThreadDisparoZ(DisparoZ disparoZ){
         this.disparo = disparoZ;
     }
     @Override
     public void run() {
+        SDIS=new Sonido("DisparoZ");
+        SDIS.clip.start();
         while(Alive){
          
             

@@ -17,6 +17,8 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  * @author Dougl
  */
 public class Sonido {
+    
+    private String Archivo;
     private final String ruta="recursos/musica/";
     public Clip clip;
     
@@ -27,7 +29,7 @@ public class Sonido {
             
             
         } catch (Exception e) {
-            
+            System.out.println("Error");
         } 
     }
     
@@ -37,5 +39,6 @@ public class Sonido {
     
     public void stop(){
         clip.stop();
+        clip.setFramePosition(0);
     }
 }
