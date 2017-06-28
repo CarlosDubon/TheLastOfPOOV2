@@ -7,6 +7,7 @@ package juego;
 
 import control.Estado;
 import control.Puntaje;
+import control.Sonido;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
@@ -152,6 +153,10 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static Trofeo trofeo;
     public static boolean Win;
     
+    private  final static Sonido Musica0 = new Sonido("Musica3");
+    private  final static Sonido Musica1 = new Sonido("Musica3_final");
+    private  final static Sonido Musica_Win = new Sonido("Musica3_Win");
+    private  static boolean isMusica=false;
    
     private Teclado teclado;
     private String Nick=null; // A la hora de dar start resetear el nick
@@ -184,7 +189,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         setPreferredSize(new Dimension(ANCHO, ALTO));
         estado = new Estado();
         
-        //Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
+        Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
         
        
@@ -315,6 +320,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
                 
                 if (Zh0rThiz.getHP()>0 && !LastTrap && jugador.getBounds().intersects(new Rectangle(1430, 800, 7*32, 32))){
                     LastTrap=true;
+                    isMusica=false;
                 }
                 
                 if(LastTrap){
@@ -526,7 +532,13 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         }
         
         if(Estado.estado ==3 && LastTrap){
-
+            if (!isMusica){
+                Musica_Win.clip.stop();
+                Musica0.stop();
+                Musica1.stop();
+                Musica1.PlayLoop();
+                isMusica=true;
+            }
             g.setColor(Color.GREEN);
             g.fillRect(150,575, Zh0rThiz.getHP(), 15);
             g.setColor(Color.WHITE);
@@ -535,12 +547,27 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         }
         
         if(Estado.estado == 0){
+            
+            if (!isMusica){
+                Musica_Win.clip.stop();
+                Musica0.stop();
+                Musica1.stop();
+                Musica0.PlayLoop();
+                isMusica=true;
+            }
 
             g.drawImage(Menu, 0, 0, this);
             g.drawImage(Cursor,CursorX,CursorY,this);
         }
         
         if (Estado.estado == 4){
+            if (!isMusica){
+                Musica_Win.clip.stop();
+                Musica0.stop();
+                Musica1.stop();
+                Musica_Win.clip.start();
+                isMusica=true;
+            }
             int cont=0;
             g.setColor(Color.WHITE);
             g.setFont(new Font("Agency FB",Font.BOLD,30));
@@ -673,9 +700,11 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
             else if(Estado.estado !=0 && jugador.getHP() <=0 && Estado.estado !=4){
                 Restock();
                 Estado.estado=0;
+                isMusica=false;
             }
             else if (Estado.estado == 4 || Estado.estado == 5){
                 Estado.estado=0;
+                isMusica=false;
             }
             else if(Estado.estado ==10){
                 Restock();
@@ -718,8 +747,8 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
        //Mapa1
        
        jugador = new Jugador(teclado,367,350,Sprite.INICIAL0,mapa);
-       //jugador.setStaticY(1130);//TEST PARA MAPA 3
-       //jugador.setStaticX(1329);//TEST PARA MAPA 3
+       jugador.setStaticY(1130);//TEST PARA MAPA 3
+       jugador.setStaticX(1329);//TEST PARA MAPA 3
        plasta = new Plasta(teclado,1200,500,Sprite.PLASTAIN0,jugador,mapa);
        key1=new Key(450, 1270, Sprite.KEY1, jugador, mapa1);
        heart1= new Heart(428, 788, Sprite.HEART1, jugador, mapa);
