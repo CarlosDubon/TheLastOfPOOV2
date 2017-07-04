@@ -3,22 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/criaturas/DisparoZ.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/juego/TheLastOfPOO.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/database/DBQuery.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/Ente.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/graficos/Pantalla.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/threads/ThreadDisparoZ.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/control/Sonido.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/criaturas/Jugador.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/graficos/package-info.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/graficos/HojaSprites.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/control/Teclado.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/threads/Tiempo.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/database/PostgresqlConexion.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/control/Estado.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/criaturas/Baty.java</file>
-            <file>file:/C:/Users/Dougl/Documents/Practicas%20de%20laboratio%20%5BPOO-17%5D/TheLastOfPOOV2/src/entes/criaturas/Criatura.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/package-info.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/BatyRed.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/Jugador.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/Disparo.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/Portal.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/Criatura.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/Trofeo.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/DisparoZ.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/Baty.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/Key.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/FinalBoss.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/TheLastOfPOOV2/src/entes/criaturas/Heart.java</file>
         </group>
     </open-files>
 </project-private>

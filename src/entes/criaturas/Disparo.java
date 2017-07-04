@@ -12,7 +12,7 @@ import java.awt.Rectangle;
 import mapa.Mapa;
 
 /**
- *
+ * Clase que se encarga de el funcionamiento del disparo del jugador
  * @author Carlos
  */
 public class Disparo extends Criatura {
@@ -27,6 +27,15 @@ public class Disparo extends Criatura {
     public final static int MarInf=-8;
     private Thread HiloDisparo;
     
+    /**
+     *  Inicializa todos los atributos de la clase
+     * @param posicionX
+     * @param posicionY
+     * @param sprite
+     * @param jugador
+     * @param mapa
+     * @param direccion 
+     */
     public Disparo(int posicionX,int posicionY,Sprite sprite,Jugador jugador,Mapa mapa, char direccion){
         this.x = posicionX;
         this.y = posicionY;
@@ -39,7 +48,10 @@ public class Disparo extends Criatura {
     
     }
 
-        
+    /**
+     * muestra en pantalla el disparo
+     * @param pantalla 
+     */    
     public void mostrar(Pantalla pantalla){
         pantalla.mostrarDisparo(x, y, this);
     }

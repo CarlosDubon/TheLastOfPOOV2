@@ -20,10 +20,18 @@ public class MapaCargado extends Mapa {
     private int[] pixeles;
     public static int cont;
     
+    /**
+     * Ya que hereda de mapa envia el parametro recibido y se lo coloca al constructor de mapa (el que recibe una ruta)
+     * @param ruta 
+     */
     public MapaCargado(String ruta) {
         super(ruta);
     }
-    
+    /**
+     * Carga una imagen desde un archivo png y copia los colores de los pixeles <br>
+     * en un array de pixeles y crea el catalogo de tiles en un array
+     * @param ruta 
+     */
     @Override
     protected void cargarMapa(String ruta){
         try{
@@ -40,7 +48,9 @@ public class MapaCargado extends Mapa {
             ex.printStackTrace();
         }
     }
-    
+    /**
+     * Llena el array "catalogo de pixeles" dependiendo del color que identifica a cada tile
+     */
     @Override
     protected void generarMapa(){
         for(int i =0;i<pixeles.length;i++){

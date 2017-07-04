@@ -13,7 +13,7 @@ import juego.TheLastOfPOO;
 import mapa.Mapa;
 
 /**
- *
+ *Esta clase se encarga de dar fincionamiento al trofeo al momento de eliminar al enemigo final
  * @author Dougl
  */
 public class Trofeo extends Criatura{
@@ -29,7 +29,9 @@ public class Trofeo extends Criatura{
         this.jugador = jugador;
         isMove = true;
     }
-    
+    /**
+     * Verifica si el jugador tiene contacto con el y le da animacion
+     */
     @Override
     public void actualizar(){
         

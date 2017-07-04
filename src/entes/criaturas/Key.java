@@ -13,7 +13,7 @@ import mapa.Mapa;
 import mapa.tile.Tile;
 
 /**
- *
+ *Se encarga de abrir los pasillos bloqueados dentro del juego
  * @author Dougl
  */
 public class Key extends Criatura{
@@ -68,7 +68,10 @@ public class Key extends Criatura{
     public Rectangle getBounds(){
         return new Rectangle(x,y,32,32);
     }
-
+    /**
+     * Verifica si el item a sido encontrado
+     * @return 
+     */
     public boolean isKeyUsed() {
         return KeyUsed;
     }

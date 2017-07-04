@@ -11,7 +11,8 @@ import java.awt.Rectangle;
 import mapa.Mapa;
 
 /**
- *
+ * Mismo fuionamiento que Disparo excepto:<br>
+ * - lo hace con los disparos del enemigo final.
  * @author Carlos
  */
 public class DisparoZ extends Criatura{
