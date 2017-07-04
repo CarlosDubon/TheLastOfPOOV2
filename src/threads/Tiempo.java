@@ -7,7 +7,7 @@ package threads;
 import juego.TheLastOfPOO;
 
 /**
- *
+ * Clase que se encarga del funcionamiento del tiempo en el juego
  * @author Dougl
  */
 public class Tiempo implements Runnable{
@@ -18,12 +18,17 @@ public class Tiempo implements Runnable{
     private String SegAux;
     private String MinAux;
     
+    /**
+     * Inicializa el valor del tiempo en 0
+     */
     public Tiempo(){
         milisegundos=0;
         segundos=0;
         minutos=0;
     }
-    
+    /**
+     * Hace el conteo del timepo en intervalos de 10 ms, actualizando los atributos de la clase y el tiempo en la clase pricipal del juego.
+     */
     @Override
     public void run() {
            

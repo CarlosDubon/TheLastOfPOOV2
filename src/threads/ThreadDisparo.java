@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Controla el disparo del jugador principal.
  * @author Carlos
  */
 public class ThreadDisparo extends Criatura implements Runnable {
@@ -22,10 +22,18 @@ public class ThreadDisparo extends Criatura implements Runnable {
     private int Cont=0;
     
     
-    
+    /**
+     * Recibe los datos de un objeto tipo disparo para, haciendo uso de sus metodos , acceder a sus atributos y modificarlos.
+     * @param disparoZ 
+     */
     public ThreadDisparo(Disparo disparo){
         this.disparo = disparo;
     }
+    
+    /**
+     * Se encarga de modificar los valores de x y y de cada disparo; este metodo toma en cuenta la direccion a la que apunta el enemigo
+     * final y realiza sus actualizaciones concorde a ello.
+     */
     @Override
     public  void run() {
         /*while(!isCollision(disparo.getDesplazamientoX(),disparo.getDesplazamientoY())){

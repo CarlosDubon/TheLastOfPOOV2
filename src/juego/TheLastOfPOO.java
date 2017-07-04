@@ -58,7 +58,7 @@ import threads.Tiempo;
 
 
 /**
- *
+ *Esta clase esta encargada...
  * @author Carlos
  */
 public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{

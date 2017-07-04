@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 /**
- * Este paquete contiene las clases que se encargan del manejo de los graficos, 
- * las actualizaciones de mapa y pantalla, y el procesamiento inicial de los sprites
+ * Este paquete contiene las clases referentes al multiproceso de la aplicacion, referentesl manejo de los disparos y el tiempo
  */
 package threads;

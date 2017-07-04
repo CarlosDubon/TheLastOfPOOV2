@@ -11,7 +11,7 @@ import entes.criaturas.DisparoZ;
 import graficos.Sprite;
 
 /**
- *
+ *Controla el disparo del enemigo final.
  * @author Carlos
  */
 public class ThreadDisparoZ extends Criatura implements Runnable {
@@ -19,10 +19,18 @@ public class ThreadDisparoZ extends Criatura implements Runnable {
     private boolean Alive=true;
     private int Cont=0;
     private Sonido SDIS;
-    
+    /**
+     * Recibe los datos de disparoZ para, haciendo uso de sus metodos , acceder a sus atributos y modificarlos.
+     * @param disparoZ 
+     */
     public ThreadDisparoZ(DisparoZ disparoZ){
         this.disparo = disparoZ;
     }
+    
+    /**
+     * Se encarga de modificar los valores de x y y de cada disparo; este metodo toma en cuenta la direccion a la que apunta el enemigo
+     * final y realiza sus actualizaciones concorde a ello.
+     */
     @Override
     public void run() {
         SDIS=new Sonido("DisparoZ");
