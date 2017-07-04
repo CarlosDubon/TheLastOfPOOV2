@@ -52,6 +52,7 @@ import entes.criaturas.Skeletor;
 import entes.criaturas.Tauro;
 import entes.criaturas.Trofeo;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import javax.sound.sampled.Clip;
 import threads.Tiempo;
 
@@ -63,6 +64,8 @@ import threads.Tiempo;
 public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
 
 
+    private static Toolkit T1;
+    
     private static final long serialVersionUID = 1L;
     private static JFrame ventana;
     private static final int ANCHO = 800;
@@ -188,11 +191,14 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
     private static int PuntajeT=750;
     
     private TheLastOfPOO(){
+        T1=Toolkit.getDefaultToolkit();
         setPreferredSize(new Dimension(ANCHO, ALTO));
         estado = new Estado();
         
+        
         //Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
+        
         
         
         try {
