@@ -7,7 +7,7 @@ package mapa;
 import graficos.Pantalla;
 import mapa.tile.Tile;
 /**
- *
+ * Clase abstracta que contiene los metodos que usaran las demas clases en este paquete
  * @author Carlos
  */
 public abstract class Mapa {
@@ -16,7 +16,11 @@ public abstract class Mapa {
    
     protected int[] tile;
     protected Tile[] cuadrosCatalogo;
-    
+    /**
+     * Constrcutor que crea un array de tiles de un tamaño en especifico
+     * @param ancho ancho del mapa
+     * @param alto alto del mapa
+     */
     public Mapa(int ancho, int alto){
         this.ancho=ancho;
         this.alto=alto;
@@ -24,23 +28,39 @@ public abstract class Mapa {
         tile = new int [ancho*alto];
         generarMapa();
     }
-    
+    /**
+     * Constructor que unicamente recive una ruta de un mapa
+     * @param ruta 
+     */
     public Mapa(String ruta){
         cargarMapa(ruta);
         generarMapa();
     }
-    
+    /**
+     * utilizado en la fase de pruebas para generar mapas random
+     */
     protected void generarMapa(){
     
     }
-    
+    /**
+     * Carga un mapa desde una ruta
+     * @param ruta 
+     */
     protected void cargarMapa(String ruta){
     
     }
+    /**
+     * Actualiza el estdo del mapa
+     */
     public void actualizar(){
     
     }
-    
+    /**
+     * Muestra el mapa en pantalla
+     * @param compensacionX diferencia de x del movimiento
+     * @param compensacionY diferencia de y del movimiento
+     * @param pantalla 
+     */
     public void mostrar(final int compensacionX,final int compensacionY,Pantalla pantalla){
         this.generarMapa();
         pantalla.resetDiferencia(compensacionX, compensacionY);
@@ -64,7 +84,12 @@ public abstract class Mapa {
             MapaCargado.cont =0;
         }
     }
-    
+    /**
+     * Asigna a cada tile un numero que lo representara para generarce de manera aleatiria
+     * @param x
+     * @param y
+     * @return 
+     */
     public Tile getTile(final int  x,final int  y){
         if(x < 0 || y < 0 || x >= ancho || y > alto){
                 return Tile.VACIO;
