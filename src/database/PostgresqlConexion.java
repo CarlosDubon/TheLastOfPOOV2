@@ -3,8 +3,20 @@ package database;
 
 import java.sql.*;
 
+/**
+ * Esta clase se encarga de establecer la conexion con la base de datos. <br>
+ * Deben tomarse en cuenta los siguientes minimos necesarios para no tener conflictos con postgreSQL:
+ * <br>1- Usuario: "postgres"
+ * <br>2- Password: "root"
+ * <br>3- Puerto de postgres: 5432
+ * @author Dougl
+ */
 public class PostgresqlConexion {   
     
+    /**
+     * Cierra la conexion iniciada en postgreSQL.
+     * @param con Conexion a cerrar.
+     */
     public void cerrarConexion(Connection con){
         try{
             con.close();
@@ -14,6 +26,10 @@ public class PostgresqlConexion {
         }
     }
     
+    /**
+     * Retorna una conexion con la base de datos "TheLastOfPOO"
+     * @return Devuelve la conexion creada
+     */
     public Connection abrirConexion() {
         String driver = "org.postgresql.Driver";
         String connectString = "jdbc:postgresql://localhost:5432/TheLastOfPOO";
