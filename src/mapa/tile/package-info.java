@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 /**
- * Este paquete contiene las clases que se encargan del manejo de los graficos, 
- * las actualizaciones de mapa y pantalla, y el procesamiento inicial de los sprites
+ * Se encarga del manejo de tiles dentro del juego
  */
 package mapa.tile;

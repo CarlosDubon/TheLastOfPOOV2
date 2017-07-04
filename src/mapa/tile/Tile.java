@@ -9,7 +9,7 @@ import graficos.Pantalla;
 import graficos.Sprite;
 
 /**
- *
+ * Carga todos los tiles registrados en el juego y se les asigna un sprite y si es solido o no
  * @author Carlos
  */
 public  class Tile {
@@ -65,15 +65,29 @@ public  class Tile {
     
     public static final int LADO = 32;
     
+    /**
+     * Constructor que cambia el sprite de un tile y la propiedad isSolid
+     * @param sprite 
+     */
     public Tile(Sprite sprite){
         this.sprite = sprite;
         this.solido = false;
     }
+    /**
+     * Constructor que cambia el sprite y cambia la propiedad is solid dependiendo de lo que reciba
+     * @param sprite
+     * @param solido 
+     */
     public Tile(Sprite sprite, boolean solido){
         this.sprite = sprite;
         this.solido = solido;
     }
-    
+    /**
+     * muestra el tile en pantalla
+     * @param x
+     * @param y
+     * @param pantalla 
+     */
     public void mostrar(int x, int y, Pantalla pantalla){
         pantalla.mostrarTile(x << 5,y << 5, this);
 
