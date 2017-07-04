@@ -8,15 +8,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+/**
+ * Esta clase administra las querys pertinentes para la insercion y 
+ * recuperacion de datos correspondientes a los puntajes de cada partida admministrada
+ * @author Dougl
+ */
 public class DBQuery {
     
     private Connection con;
     private PostgresqlConexion conexion;
     
+    /**
+     * Inicializa una nueva instancia que permite realizar la conexiona bases de datos por medio del gestor POSTGRESQL
+     */
     public DBQuery(){
         conexion = new PostgresqlConexion();
     }
     
+    /**
+     * Inserta dentro de la base de datos el nombre del jugador y su puntaje
+     * @param Nick Nombre del jugador
+     * @param Puntaje Puntaje del jugador
+     * @return Devuelve true si la query se realizo con exito, y false si fallo algo en el proceso
+     */
     public boolean insertJugador(String Nick, int Puntaje){
         try{
            con = conexion.abrirConexion();
@@ -39,6 +54,10 @@ public class DBQuery {
         return true;
     }
     
+    /**
+     * Devuelve un Array de objetos tipo Puntaje, compuesto por 10 puestos, que representan las ultimas 10 partidas realizadas
+     * @return Array de Puntajes con longitud 10.
+     */
     public Puntaje[] TopScores(){
         Puntaje[] Top10= new Puntaje[10];
         Puntaje Aux;
