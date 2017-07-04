@@ -16,7 +16,13 @@ import mapa.Mapa;
 import threads.ThreadDisparo;
 
 /**
- *
+ * Tiene el contror de todas las propiedades del jugador <br>
+ * <b>Stats</b>
+ * - Vida
+ * - Disparos
+ * - Energia
+ * - Municiones
+ * - puntaje
  * @author Carlos
  */
 public class Jugador extends Criatura{
@@ -31,7 +37,14 @@ public class Jugador extends Criatura{
     private static Sonido SDIS;
     private boolean Zreleased= false;
     private int puntaje;
-
+    /**
+     * Inicializa todas las propiedades de Jugador
+     * @param teclado 
+     * @param posicionX
+     * @param posicionY
+     * @param sprite
+     * @param mapa 
+     */
     public Jugador(Teclado teclado, int posicionX, int posicionY,Sprite sprite, Mapa mapa){
         this.mapa = mapa;
         this.teclado = teclado;
@@ -48,7 +61,14 @@ public class Jugador extends Criatura{
         EP = 200;
         fire=25;
     }
-    
+    /**
+     * Actualiza al juagador dentro del juego <br>
+     * - movimientos
+     * -ataque
+     * -vida-
+     * -energia
+     * 
+     */
     @Override
     public void actualizar(){
         
@@ -151,6 +171,9 @@ public class Jugador extends Criatura{
         }
         
     }
+    /**
+     * añade disparos al array de disparos para luego ser ejecutados
+     */
     public void disparar(){
         
         disparo = new Disparo(x+5,y+3,Sprite.DISPARO1,this,mapa, this.direccion);
@@ -162,6 +185,10 @@ public class Jugador extends Criatura{
         SDIS.clip.start();
  
     }
+    /**
+     * mustra al jugador en pantalla
+     * 
+     */
     public void mostrar(Pantalla pantalla){
         pantalla.mostrarJugador(x, y, this);
         
@@ -178,7 +205,11 @@ public class Jugador extends Criatura{
     public void setFire(int fire) {
         this.fire += fire;
     }
-
+    
+    /**
+     * verifica si el jugador esta disparando continuamente
+     * @param Zreleased 
+     */
     public void setZreleased(boolean Zreleased) {
         this.Zreleased = Zreleased;
     }

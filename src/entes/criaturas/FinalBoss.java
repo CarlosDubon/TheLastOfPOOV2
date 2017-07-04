@@ -14,7 +14,11 @@ import mapa.Mapa;
 import threads.ThreadDisparoZ;
 
 /**
- *
+ * Se encarga de controlar las estadisticas del enemigo final <br>
+ * <b>Stats</b> <br>
+ * - Vida
+ * - Ataque
+ * - Movimientos
  * @author Carlos
  */
 public class FinalBoss extends Criatura{
@@ -25,6 +29,14 @@ public class FinalBoss extends Criatura{
     private char DireccionAux;
     private Thread thread;
     public ArrayList<DisparoZ> arrayDisparosZ;
+    /**
+     * Inicialza los atributos de la clase
+     * @param x posicion inical X
+     * @param y posicion inicial Y
+     * @param sprite Sprite respectivo de la criatura 
+     * @param jugador Objeto de tipo jugador
+     * @param mapa  mapa adonde se mostrara el enemigo
+     */
     public FinalBoss(int x, int y, Sprite sprite,Jugador jugador, Mapa mapa){
         this.x = x;
         this.y = y;
@@ -39,6 +51,9 @@ public class FinalBoss extends Criatura{
         this.ATK = 5;
         this.arrayDisparosZ = new ArrayList<DisparoZ>();
     }
+    /**
+     * Actualiza el estado del enemigo dentro de su rango de accion
+     */
     @Override
     public void actualizar(){
         desplazamientoX =0;
@@ -172,6 +187,10 @@ public class FinalBoss extends Criatura{
             sprite = Sprite.FBDIE;
         }
     }
+    /**
+     * Mustra el enemigo en pantalla
+     * @param pantalla 
+     */
     public void mostrar(Pantalla pantalla){
         pantalla.mostrarFB(x, y, this);
     }

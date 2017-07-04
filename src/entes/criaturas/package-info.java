@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 /**
- * Este paquete contiene las clases que se encargan del manejo de los graficos, 
- * las actualizaciones de mapa y pantalla, y el procesamiento inicial de los sprites
+ * Paquete en el cual se tiene control de todo el funcionamiento, estado y estadisticas de <br>
+ * las criaturas en el juego.
  */
 package entes.criaturas;

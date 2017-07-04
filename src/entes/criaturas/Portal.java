@@ -14,13 +14,21 @@ import juego.TheLastOfPOO;
 import mapa.Mapa;
 
 /**
- *
+ * se encarga de dar el funcionamiento a los cambios del mapa
  * @author Carlos
  */
 public class Portal extends Criatura {
     Pantalla pantalla;
     private int animacion;
     private Jugador jugador;
+    /**
+     * Se encarga de inicializar todas las propiedades de la clase
+     * @param x
+     * @param y
+     * @param sprite
+     * @param jugador
+     * @param mapa 
+     */
     public Portal(int x, int y, Sprite sprite,Jugador jugador, Mapa mapa){
         this.x = x;
         this.y = y;
@@ -28,7 +36,9 @@ public class Portal extends Criatura {
         this.mapa = mapa;
         this.jugador = jugador;
     }
-    
+    /**
+     * Da animacion a la criatura "Portal" y verifica si el jugador tiene contacto con el
+     */
     @Override
     public void actualizar(){
         isMove = true;

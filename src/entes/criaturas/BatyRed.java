@@ -12,9 +12,12 @@ import java.awt.Rectangle;
 import mapa.Mapa;
 
 /**
- *
+ * La clase Baty Red hace exactamente lo mismo a excepcion de: <br>
+ * - El sprite es diferente <br>
+ * - El patron de movimiento varia un poco<br>
  * @author Carlos
  */
+
 public class BatyRed extends Criatura {
     private Jugador jugador;
     

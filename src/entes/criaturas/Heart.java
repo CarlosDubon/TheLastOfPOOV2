@@ -11,7 +11,7 @@ import java.awt.Rectangle;
 import mapa.Mapa;
 
 /**
- *
+ * Se encarga de darle funcion al aumento de HP dentro del juego
  * @author Dougl
  */
 public class Heart extends Criatura{
@@ -19,6 +19,14 @@ public class Heart extends Criatura{
     private int animacion;
     private Jugador jugador;
     private boolean HeartUsed=false;
+    /**
+     *  Inicializa los atributos de la clase
+     * @param x posicion X en la que aparecera
+     * @param y posicion Y en la que aparecera
+     * @param sprite Sprite del corazon
+     * @param jugador objeto de tipo jugador
+     * @param mapa mapa en el cual aparecera
+     */
     public Heart(int x, int y, Sprite sprite,Jugador jugador, Mapa mapa){
         this.x = x;
         this.y = y;
@@ -27,7 +35,9 @@ public class Heart extends Criatura{
         this.jugador = jugador;
         isMove = true;
     }
-    
+    /**
+     * Se encarga actualizar el estado del item en el juego
+     */
     @Override
     public void actualizar(){
         
@@ -61,6 +71,10 @@ public class Heart extends Criatura{
             this.isMove=false;
         }
     }
+    /**
+     * Mustra el item en pantalla en el mapa indicado
+     * @param pantalla 
+     */
     public void mostrar(Pantalla pantalla){
         pantalla.mostrarHeart(x, y, this);
     
@@ -68,7 +82,10 @@ public class Heart extends Criatura{
     public Rectangle getBounds(){
         return new Rectangle(x,y,32,32);
     }
-
+     /**
+      * Verifica si el item ya ha sido recogido
+      * @return 
+      */
     public boolean isHeartUsed() {
         return HeartUsed;
     }

@@ -13,12 +13,20 @@ import mapa.Mapa;
 import threads.ThreadDisparo;
 
 /**
- *
+ * Se encarga de mostrar, actualizar y darle funcionamiento a la criatura llamada <b>"Baty"</b> 
  * @author Carlos
  */
 public class Baty extends Criatura {
-    private Jugador jugador;
+    private Jugador jugador; // necesita una variable de tipo jugador  ya que se necesita obtenter datos del jugador.
     
+    /**
+     *  Inicializa todas las propiedades de la criatura.
+     * @param x posicion X inicial de la criatura
+     * @param y posicion Y inicial de la criatura
+     * @param sprite sprite corespondiente de la criatura
+     * @param jugador objeto de tipo jugador
+     * @param mapa mapa en el cual aparecera la criatura
+     */
     public Baty(int x, int y, Sprite sprite, Jugador jugador,Mapa mapa){
         this.x = x;
         this.y = y;
@@ -34,6 +42,17 @@ public class Baty extends Criatura {
         this.direccion = 'o';
     
     }
+    /**
+     * Igual funcionamiento que el costructor anterior <br>
+     * <b>Diferenuas:</b>
+     * -Recibe la direccion en a cual se quiere incializar a la criatura
+     * @param x
+     * @param y
+     * @param sprite
+     * @param jugador
+     * @param mapa
+     * @param direccion 
+     */
     public Baty(int x, int y, Sprite sprite, Jugador jugador,Mapa mapa,char direccion){
         this.x = x;
         this.y = y;
@@ -49,6 +68,15 @@ public class Baty extends Criatura {
         this.direccion = direccion;
     
     }
+    /**
+     * Controla todas las estadisticas de la criatura tales como: <br>
+     * <b>Stats</b><br>
+     * -Vida<br>
+     * -Ataque<br>
+     * -Movimientos<br>
+     * -Animaciones<br>
+     * -Ataques especiales<br>
+     */
     @Override
     public void actualizar(){
         desplazamientoX =0;
@@ -139,11 +167,17 @@ public class Baty extends Criatura {
             sprite = Sprite.BATADIE;
         }
     }
-    
+    /**
+     * Muestra el sprite de la criatura en pantalla
+     * @param pantalla 
+     */
     public void mostrar(Pantalla pantalla){
         pantalla.mostrarBaty(x,y, this);
     }
-    
+    /**
+     * Retorna un 
+     * @return rectangulo del tamaño del sprite para poder realizar coliciones
+     */
     public Rectangle getBounds(){
         return new Rectangle(x,y,48,48);
     }
