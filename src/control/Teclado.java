@@ -9,11 +9,11 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
 /**
- *
- * @author Carlos
+ * Esta Clase controla el estado de las teclas de mayor uso en la aplicacion
+ * @author Dougl
  */
 public class Teclado implements KeyListener{
-    private final static int numeroTeclas = 120;
+    private final static int numeroTeclas = 300;
     private final boolean[] teclas = new boolean[numeroTeclas];
     
     public boolean arriba;
@@ -40,11 +40,21 @@ public class Teclado implements KeyListener{
     public void keyTyped(KeyEvent e) {
     }
 
+    /**
+     * Toma el arreglo de booleanos y compara el indice con el codigo de la tecla, y vuelve verdarero el valor de
+     * de cada instancia booleana que representan la teclas presionadas
+     * @param e Control de eventos en teclados
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         teclas[e.getKeyCode()]=true;
     }
 
+    /**
+     * Toma el arreglo de booleanos y compara el indice con el codigo de la tecla, y vuelve falso el valor de
+     * de cada instancia booleana que representan la teclas que han sido soltadas
+     * @param e Control de eventos de teclado 
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         teclas[e.getKeyCode()]=false;

@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package graficos;
 
 import entes.criaturas.Baty;
@@ -24,7 +25,7 @@ import entes.criaturas.Tauro;
 import entes.criaturas.Trofeo;
 
 /**
- *
+ * Muestra la pantalla , seassasdasdasd
  * @author Carlos
  */
 public class Pantalla {
@@ -37,19 +38,34 @@ public class Pantalla {
 
     public final int[] pixeles;
 
+    
+    /**
+     * Crea una instacia de un pantalandas dlkjansm asdc ascnasdnasndansf asdn as;as dasndfa
+     * @param ancho  de la pantalla
+     * @param alto de la pantalla
+     */
     public Pantalla(final int ancho, final int alto) {
         this.ancho = ancho;
         this.alto = alto;
 
         pixeles = new int[ancho * alto];
     }
-
+    
+    /**
+     * Colorea los pixeles de negrooool
+     */
     public void limpiar() {
         for (int i = 0; i < pixeles.length; i++) {
             pixeles[i] = 0;
         }
     }
-
+    
+    /**
+     * PUTO EL QUE LO LEA
+     * @param compensacionX
+     * @param compensacionY
+     * @param tile 
+     */
     public void mostrarTile(int compensacionX, int compensacionY, Tile tile) {
         compensacionX -= diferenciaX;
         compensacionY -= diferenciaY;

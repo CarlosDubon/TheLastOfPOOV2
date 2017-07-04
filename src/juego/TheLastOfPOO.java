@@ -194,7 +194,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         //Estado.estado=3; //Testing (PORTAL NO FUNCIONA SI SE DESCOMENTA)
         pantalla = new Pantalla(ANCHO,ALTO);
         
-       
+        
         try {
             Menu = ImageIO.read(new File(".\\.\\recursos\\texturas\\GameMenu.png"));
             PantallaScore= ImageIO.read(new File(".\\.\\recursos\\texturas\\GameScore.png"));
@@ -225,6 +225,7 @@ public final class TheLastOfPOO extends Canvas implements Runnable, KeyListener{
         ventana.setResizable(false);
         ventana.setLayout(new BorderLayout());
         ventana.add(this,BorderLayout.CENTER);
+        ventana.setUndecorated(true);
         ventana.pack();
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
