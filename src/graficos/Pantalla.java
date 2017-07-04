@@ -25,7 +25,8 @@ import entes.criaturas.Tauro;
 import entes.criaturas.Trofeo;
 
 /**
- * Muestra la pantalla , seassasdasdasd
+ * Realiza las actualizaciones visibles para el usuario, asi como actuliza 
+ * la visibilidad de los mapas y recalcula la poscicion de los objetos
  * @author Carlos
  */
 public class Pantalla {
@@ -40,7 +41,8 @@ public class Pantalla {
 
     
     /**
-     * Crea una instacia de un pantalandas dlkjansm asdc ascnasdnasndansf asdn as;as dasndfa
+     * Crea una instancia de pantalla; ademas inicializa un arreglo de pixeles que represeenta el mapa en que se encuentra
+     * la aplicacion
      * @param ancho  de la pantalla
      * @param alto de la pantalla
      */
@@ -52,7 +54,7 @@ public class Pantalla {
     }
     
     /**
-     * Colorea los pixeles de negrooool
+     * Vuelve los valores del arreglo de colores (en int) al valor que representa el color negro
      */
     public void limpiar() {
         for (int i = 0; i < pixeles.length; i++) {
@@ -61,8 +63,9 @@ public class Pantalla {
     }
     
     /**
-     * PUTO EL QUE LO LEA
-     * @param compensacionX
+     * Muestra en una posicion especifica un "tile" dentro de la partalla, toamndo en cuneta la posicion del
+     * jugador y a disposicion en el mapa.
+     * @param compensacionX 
      * @param compensacionY
      * @param tile 
      */
@@ -83,7 +86,18 @@ public class Pantalla {
             }
         }
     }
-
+    
+    
+    /**
+     * Muestra en una posicion especifica un "jugador" dentro de la partalla, toamndo en cuneta la posicion del
+     * mismo y a disposicion en el mapa, ademas ignora cierto color con el fin de realizar trasnparencia en la imagen.<br>
+     * Los siguientes metodos dentro de la misma clase funcionan de igual forma, solo que con la diferencia en los sprites que cargan, 
+     * el color que ignoran, y la centralizacion en el jugador: <br>
+     * --AQUI ENUMERAN TODOS LOS METODOS DE ABAJO--
+     * @param compensacionX
+     * @param compensacionY
+     * @param jugador 
+     */
     public void mostrarJugador(int compensacionX, int compensacionY, Jugador jugador) {
         compensacionX -= diferenciaX;
         compensacionY -= diferenciaY;
@@ -416,7 +430,11 @@ public class Pantalla {
     }
     
     
-
+    /**
+     * Reinicia el diferencial de x y y a valores predetrminados
+     * @param diferenciaX Valor inicial de X
+     * @param diferenciaY Valor inicial de Y
+     */
     public void resetDiferencia(final int diferenciaX, final int diferenciaY) {
         this.diferenciaX = diferenciaX;
         this.diferenciaY = diferenciaY;

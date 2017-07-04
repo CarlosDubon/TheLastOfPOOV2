@@ -12,7 +12,8 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 /**
- *
+ *Esta clase se encarga de administrar los sprites de cada criatura en el juego, 
+ * asi como aquellos que pertenecen a los partes de los mapas de cada nivel. 
  * @author Carlos
  */
 public class HojaSprites {
@@ -43,6 +44,13 @@ public class HojaSprites {
 
     //fin de la coleccion
     
+    /**
+     * Toma se la ruta proporcionada la imagen que corresponde, y lee pixel por pixel los colores que componen la imagen,
+     * y lo almacena en un arreglo de enteros, para poderla manipular con mayor facilidad.
+     * @param ruta Ruta Relativa de la imagen que contiene los sprites.
+     * @param ancho Ancho de la imagen.
+     * @param alto Alto de la imagen.
+     */
     public HojaSprites(final String ruta,final int ancho, final int alto){
         this.ancho = ancho;
         this.alto = alto;

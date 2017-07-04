@@ -7,7 +7,8 @@ package graficos;
 
 
 /**
- *
+ * Esta clase se encarga de leer y administrar la coleccion de sprites pertenecientes a las criaturas y tiles del juego,
+ * a partir de las hojas de sprites previamente cargada.
  * @author Carlos
  */
 public class Sprite {
@@ -294,6 +295,13 @@ public class Sprite {
     
 //Fin de la coleccion
     
+    /**
+     * Incializa a partir de una hoja de sprites previamente cargada, y en relacion al los indices de una matriz, un sprite cuadrado con L de longitud
+     * @param lado Tamaño de sprite
+     * @param columna Posicion en la imagen
+     * @param fila Posicion en la imagen
+     * @param hoja Hoja de Sprites ya cargada
+     */
     public Sprite(final int lado, final int columna, final int fila, final HojaSprites hoja){
         this.lado = lado;
         this.hoja = hoja;
@@ -307,6 +315,12 @@ public class Sprite {
             }
         }
     }
+    
+    /**
+     * Inicializa un sprite de un color solido a partir de su respectivo hexadecimal, y el tamaño que se le proporcione
+     * @param lado Tamaño del sprite
+     * @param color Hexadecimal del sprite 
+     */
     public Sprite(final int lado, final int color){
         this.lado = lado;
         pixeles = new int[lado*lado];
